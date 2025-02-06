@@ -7,13 +7,17 @@ export default function decorate(block) {
             nextBtn.classList.add('btn');
             nextBtn.classList.add('btn-next');
             const node = document.createTextNode(row.textContent)
-            nextBtn.append(node)
+            console.log(node);
+            nextBtn.append(node);
+            row.replaceWith(nextBtn);
         }
         if (r == rows.length - 1) {
             const prevBtn = document.createElement('button');
-            nextBtn.classList.add('btn');
-            nextBtn.classList.add('btn-prev');
+            prevBtn.classList.add('btn');
+            prevBtn.classList.add('btn-prev');
             const node = document.createTextNode(row.textContent)
+            prevBtn.append(node);
+            row.replaceWith(prevBtn);
         }
     });
 }

@@ -14,9 +14,7 @@ export default function decorate(block) {
             nextBtn.addEventListener('click', () => {
                 console.log('Next button clicked');
             });
-        }
-        
-        if (r == rows.length - 1) {
+        } else if (r == rows.length - 1) {
             const prevBtn = document.createElement('button');
             prevBtn.classList.add('btn', 'btn-prev');
             const node = document.createTextNode(row.textContent);
@@ -24,6 +22,14 @@ export default function decorate(block) {
             row.replaceWith(prevBtn);
             prevBtn.addEventListener('click', () => {
                 console.log('Prev button clicked');
+            });
+
+        } else {
+            row.classList.add('slide');
+            [...row.children].forEach((col, c) => {
+                if (c == 1) {
+                    col.classList.add('slide-text');
+                }
             });
         }
     });

@@ -2,12 +2,11 @@ export default function decorate(block) {
     console.log(block);
     const rows = [...block.children];
 
-    [...block.children].forEach((row, r) => {
+    rows.forEach((row, r) => {
         if (r == 0) {
             const nextBtn = document.createElement('button');
             nextBtn.classList.add('btn', 'btn-next');
-            const node = document.createTextNode(row.textContent);
-            nextBtn.append(node);
+            nextBtn.textContent = row.textContent;
             row.replaceWith(nextBtn);
 
             // Add click event listener
@@ -17,17 +16,20 @@ export default function decorate(block) {
         } else if (r == rows.length - 1) {
             const prevBtn = document.createElement('button');
             prevBtn.classList.add('btn', 'btn-prev');
-            const node = document.createTextNode(row.textContent);
-            prevBtn.append(node);
+            prevBtn.textContent = row.textContent;
             row.replaceWith(prevBtn);
+
             prevBtn.addEventListener('click', () => {
                 console.log('Prev button clicked');
             });
-
         } else {
             row.classList.add('slide');
             [...row.children].forEach((col, c) => {
-                if (c == 1) {
+                if (col.querySelector('picture')) {
+                    // Move picture outside and remove its parent div
+                    const picture = col.querySelector('picture');
+                    col.replaceWith(picture);
+                } else {
                     col.classList.add('slide-text');
                 }
             });

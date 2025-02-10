@@ -31,7 +31,9 @@ export default function decorate(block) {
 				if (index == 0) {
 					const NavLinkList = item.querySelector('ul')
 					NavLinkList.classList.add('navLinks');
-					NavLinkList.querySelectorAll('li').classList.add('navItem');
+					NavLinkList.querySelectorAll('li').forEach(li => {
+						li.classList.add('navItem');
+					});
 					item.replaceWith(NavLinkList);
 				}
 				if (index == 1) {

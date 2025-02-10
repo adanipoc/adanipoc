@@ -29,9 +29,18 @@ export default function decorate(block) {
 			const cols = [...row.children];
 			cols.forEach((item, index) => {
 				if (index == 0) {
-					const NavlikList = item.querySelector('ul')
-					NavlikList.classList.add('navLinks');
-					item.replaceWith(NavlikList);
+					const NavLinkList = item.querySelector('ul')
+					NavLinkList.classList.add('navLinks');
+					NavLinkList.querySelectorAll('li').classList.add('navItem');
+					item.replaceWith(NavLinkList);
+				}
+				if (index == 1) {
+					const userLogin = document.createElement('div');
+					userLogin.classList.add('userLogin');
+					const newImage = document.createElement('img');
+					newImage.src = item.querySelector('img').src
+					userLogin.appendChild(newImage);
+					item.replaceWith(userLogin);
 				}
 			});
 		}

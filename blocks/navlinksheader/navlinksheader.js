@@ -24,13 +24,12 @@ export default function decorate(block) {
 			row.replaceWith(sliderDiv);
 		}
 		if (r == 1) {
-			const menuWrapper = document.createElement('div');
-			menuWrapper.classList.add('menuWrapper');
+			row.classList.add('menuWrapper');
 			console.log(row);
 			const cols = [...row.children];
 			cols.forEach((item, index) => {
 				if(index == 0){
-					item.classList.add('navLinks');				
+					item.querySelector('ul').classList.add('navLinks');				
 				}
 			});
 		}

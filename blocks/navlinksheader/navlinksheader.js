@@ -9,7 +9,7 @@ export default function decorate(block) {
 			const cols = [...row.children];
 			cols.forEach((item, index) => {
 				const newImage = document.createElement('img');
-				newImage.src = row.src; // Replace with your image URL
+				newImage.src = item.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));; // Replace with your image URL
 				newImage.alt = 'Description of the image'; // Add alt text for accessibility
 				// Append the image to sliderDiv
 				if(index == 0){

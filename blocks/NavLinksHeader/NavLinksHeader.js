@@ -8,11 +8,6 @@ export default function decorate(block) {
 			const sliderDiv = document.createElement('div');
 			sliderDiv.classList.add('NavLinksHeader');
 			row.replaceWith(sliderDiv);
-
-			// Add click event listener
-			sliderDiv.addEventListener('click', () => {
-				console.log('Next button clicked');
-			});
 		}
 	})
 }

@@ -8,15 +8,20 @@ export default function decorate(block) {
 			sliderDiv.classList.add('logo');
 			const cols = [...row.children];
 			cols.forEach((item, index) => {
-				console.log(item, index);
-				console.log('item, index');
+				const newImage = document.createElement('img');
+				newImage.src = row.src; // Replace with your image URL
+				newImage.alt = 'Description of the image'; // Add alt text for accessibility
+				// Append the image to sliderDiv
+				if(index == 0){
+					newImage.classList.add('menuIcon')
+				}
+				if(index == 1){
+					newImage.classList.add('logoImage')
+				}
+				sliderDiv.appendChild(newImage);
 			})
 
-			const newImage = document.createElement('img');
-			newImage.src = row.src; // Replace with your image URL
-			newImage.alt = 'Description of the image'; // Add alt text for accessibility
-			// Append the image to sliderDiv
-			sliderDiv.appendChild(newImage);
+
 
 			// Replace the original row with the new sliderDiv
 			row.replaceWith(sliderDiv);

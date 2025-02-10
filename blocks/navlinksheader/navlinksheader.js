@@ -1,9 +1,5 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
-
 export default function decorate(block) {
-	console.log(block);
 	const rows = [...block.children];
-
 	rows.forEach((row, r) => {
 		if (r == 0) {
 			const sliderDiv = document.createElement('div');
@@ -25,7 +21,6 @@ export default function decorate(block) {
 		}
 		if (r == 1) {
 			row.classList.add('menuWrapper');
-			console.log(row);
 			const cols = [...row.children];
 			cols.forEach((item, index) => {
 				if (index == 0) {

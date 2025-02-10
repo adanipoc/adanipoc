@@ -11,6 +11,7 @@ export default function decorate(block) {
 			const cols = [...row.children];
 			cols.forEach((item, index) => {
 				const newImage = item.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]))); // Replace with your image URL
+				console.log(newImage);
 				if(index == 0){
 					newImage.classList.add('menuIcon')
 				}

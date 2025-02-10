@@ -27,6 +27,12 @@ export default function decorate(block) {
 			const menuWrapper = document.createElement('div');
 			menuWrapper.classList.add('menuWrapper');
 			console.log(row);
+			const cols = [...row.children];
+			cols.forEach((item, index) => {
+				if(index == 0){
+					item.classList.add('navLinks');				
+				}
+			});
 		}
 	});
 }

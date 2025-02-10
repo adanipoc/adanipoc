@@ -32,6 +32,7 @@ export default function decorate(block) {
 			}
 			if (i == 3) {
 				itemBGiamge.src = innerItem.querySelector('img').src;
+				itemBGiamge.width = '100%';
 				slide.appendChild(itemBGiamge);
 			}
 			// innerItem.replaceWith()

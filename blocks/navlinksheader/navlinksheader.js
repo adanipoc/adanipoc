@@ -12,7 +12,7 @@ export default function decorate(block) {
 			newImage.alt = 'Description of the image'; // Add alt text for accessibility
 
 			// Append the image to sliderDiv
-			sliderDiv.appendChild(newImage);
+			sliderDiv.appendChild(row);
 
 			// Replace the original row with the new sliderDiv
 			row.replaceWith(sliderDiv);

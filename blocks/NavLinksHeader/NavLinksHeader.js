@@ -6,7 +6,7 @@ export default function decorate(block) {
 		console.log(row);
 		if (r == 0) {
 			const sliderDiv = document.createElement('div');
-			sliderDiv.classList.add('NavLinksHeader');
+			sliderDiv.classList.add('navlinksheader');
 			row.replaceWith(sliderDiv);
 		}
 	})

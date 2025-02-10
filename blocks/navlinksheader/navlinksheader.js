@@ -28,8 +28,10 @@ export default function decorate(block) {
 			console.log(row);
 			const cols = [...row.children];
 			cols.forEach((item, index) => {
-				if(index == 0){
-					item.querySelector('ul').classList.add('navLinks');				
+				if (index == 0) {
+					const NavlikList = item.querySelector('ul')
+					NavlikList.classList.add('navLinks');
+					item.replaceWith(NavlikList);
 				}
 			});
 		}

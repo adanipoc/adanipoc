@@ -5,6 +5,9 @@ export default function decorate(block) {
 	rows.forEach((row, r) => {
 		console.log(row, r);
 		if (r == 0) {
+			row.children.forEach((item, index) => {
+				console.log(item);
+			})
 			const sliderDiv = document.createElement('div');
 			sliderDiv.classList.add('logo');
 

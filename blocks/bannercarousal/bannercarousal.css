@@ -14,6 +14,46 @@
 		transition: all .3s ease-in-out;
 		width: 100%;
 		flex-basis: 100%;
+		height: 376px;
+		.textWrapper {
+			position: absolute;
+			top: 0;
+			width: 50%;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			justify-content: center;
+			padding: 0 0 0 100px;
+			background-color: #8383e9;
+			clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%);
+			gap: 20px;
+			p.heading {
+				font-size: 30px;
+				line-height: 36px;
+				margin: 0;
+				font-weight: bold;
+				color: #fff;
+			}
+
+			p.subHeading {
+				font-size: 20px;
+				line-height: 24px;
+				color: #f8f8f8;
+				margin: 0;
+			}
+
+			button.itemCta {
+				background-color: #fff;
+				color: #8383e9;
+				border: none;
+				border-radius: 16px;
+				padding: 10px 20px;
+				font-size: 18px;
+				line-height: 20px;
+				font-weight: bold;
+			}
+		}
 	}
 	.slider-nav {
 		position: absolute;

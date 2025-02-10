@@ -28,15 +28,19 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: 0 60px;
+		gap: 0 30px;
 		ul.navLinks {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			gap: 20px;
+			gap: 15px;
 			list-style: none;
 			margin: 0;
 			padding: 0;
+			li.navItem {
+				font-size: 14px;
+				line-height: 18px;
+			}
 		}
 		.userLogin {
 			img.userLog {

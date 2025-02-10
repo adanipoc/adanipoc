@@ -10,7 +10,9 @@ export default function decorate(block) {
 			sliderDiv.classList.add('logo');
 			const cols = [...row.children];
 			cols.forEach((item, index) => {
-				const newImage = item.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]))); // Replace with your image URL
+				const newImage = document.createElement('img');
+				newImage.src = item.querySelector('img').src
+				// const newImage = item.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]))); // Replace with your image URL
 				console.log(newImage);
 				if(index == 0){
 					newImage.classList.add('menuIcon')

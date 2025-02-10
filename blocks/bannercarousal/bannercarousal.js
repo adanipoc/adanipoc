@@ -9,19 +9,30 @@ export default function decorate(block) {
 		const cols = [...item.children];
 		const heading = document.createElement('p');
 		const subHeading = document.createElement('p');
-		const itemCTA = document.createElement('button');
+		const itemCTA = document.createElement('a');
+		const itemBGiamge = document.createElement('img');
 		heading.classList.add('heading')
 		subHeading.classList.add('subHeading')
 		itemCTA.classList.add('itemCTA');
+		itemBGiamge.classList.add('itemImg');
 		cols.forEach((innerItem, i) => {
 			console.log(innerItem);
-			if(i == 0){
+			if (i == 0) {
 				heading.textContent = innerItem.querySelector('p').textContent;
 				textWrapper.appendChild(heading);
 			}
-			if(i == 1){
+			if (i == 1) {
 				subHeading.textContent = innerItem.querySelector('p').textContent;
 				textWrapper.appendChild(subHeading);
+			}
+			if (i == 2) {
+				itemCTA.textContent = innerItem.querySelector('a').textContent
+				itemCTA.href = innerItem.querySelector('a').href;
+				textWrapper.appendChild(itemCTA);
+			}
+			if (i == 3) {
+				itemBGiamge.src = innerItem.querySelector('img').src;
+				slide.appendChild(itemCTA);
 			}
 			// innerItem.replaceWith()
 		});

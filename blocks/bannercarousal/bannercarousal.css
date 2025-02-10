@@ -2,13 +2,18 @@
 	display: flex;
 	position: relative;
 	overflow: hidden;
-	width: 1000px;
+	width: 100%;
 	margin: 50px auto 0px;
 	height: 400px;
+	align-items: flex-start;
+	justify-content: flex-start;
+	flex-wrap: wrap;
 	/* transform: translateX(); */
 	.slide {
-		position: absolute;
+		position: relative;
 		transition: all .3s ease-in-out;
+		width: 100%;
+		flex-basis: 100%;
 	}
 	.slider-nav {
 		position: absolute;

@@ -50,3 +50,6 @@
 		}
 	}
 }
+header.header-wrapper {
+	display: none;
+}

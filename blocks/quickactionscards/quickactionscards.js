@@ -7,6 +7,7 @@ export default function decorate(block) {
 		children.forEach((qLink, i) => {
 			console.log(qLink);
 		})
+		item.replaceWith(quickLinkItem)
 
 	})
 }

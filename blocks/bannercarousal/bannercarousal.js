@@ -1,33 +1,40 @@
 export default function decorate(block) {
-	[...block.children].forEach(item => {
+	const rows = [...block.children];
+	rows.forEach((item, index) => {
 		const slide = document.createElement('div');
 		slide.classList.add('slide');
-
 		const textWrapper = document.createElement('div');
 		textWrapper.classList.add('textWrapper');
-
-		const [heading, subHeading, itemCTA, itemBGiamge] = [
-			document.createElement('p'),
-			document.createElement('p'),
-			document.createElement('a'),
-			document.createElement('img')
-		];
-
-		[heading, subHeading, itemCTA, itemBGiamge].forEach((el, i) => {
-			el.classList.add(i === 0 ? 'heading' : i === 1 ? 'subHeading' : i === 2 ? 'itemCTA' : 'itemImg');
+		const cols = [...item.children];
+		const heading = document.createElement('p');
+		const subHeading = document.createElement('p');
+		const itemCTA = document.createElement('a');
+		const itemBGiamge = document.createElement('img');
+		heading.classList.add('heading')
+		subHeading.classList.add('subHeading')
+		itemCTA.classList.add('itemCTA');
+		itemBGiamge.classList.add('itemImg');
+		cols.forEach((innerItem, i) => {
+			if (i == 0) {
+				heading.textContent = innerItem.querySelector('p').textContent;
+				textWrapper.appendChild(heading);
+			}
+			if (i == 1) {
+				subHeading.textContent = innerItem.querySelector('p').textContent;
+				textWrapper.appendChild(subHeading);
+			}
+			if (i == 2) {
+				itemCTA.textContent = innerItem.querySelector('a').textContent
+				itemCTA.href = innerItem.querySelector('a').href;
+				textWrapper.appendChild(itemCTA);
+			}
+			if (i == 3) {
+				itemBGiamge.src = innerItem.querySelector('img').src;
+				itemBGiamge.width = '100%';
+				slide.appendChild(itemBGiamge);
+			}
+			// innerItem.replaceWith()
 		});
-
-		[...item.children].forEach((innerItem, i) => {
-			const content = innerItem.querySelector(i === 0 ? 'p' : i === 2 ? 'a' : i === 3 ? 'img' : null);
-			if (i === 0) heading.textContent = content.textContent;
-			if (i === 1) subHeading.textContent = content.textContent;
-			if (i === 2) { itemCTA.textContent = content.textContent; itemCTA.href = content.href; }
-			if (i === 3) itemBGiamge.src = content.src;
-
-			if (i < 3) textWrapper.appendChild([heading, subHeading, itemCTA][i]);
-			if (i === 3) slide.appendChild(itemBGiamge);
-		});
-
 		slide.appendChild(textWrapper);
 		item.replaceWith(slide);
 	});

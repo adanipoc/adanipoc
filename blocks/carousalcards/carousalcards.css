@@ -1,0 +1,4 @@
+[data-block-name="carousalcards"] {
+	max-width: calc(100% - 160px);
+	margin: 0 auto;
+}

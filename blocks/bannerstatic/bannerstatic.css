@@ -1,0 +1,9 @@
+[data-block-name='bannerstatic'] {
+	max-width: calc(100% - 160px);
+	margin: 0 auto;
+	.staticBanner {
+		.bannerStatic {
+			width: 100%;
+		}
+	}
+}

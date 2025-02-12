@@ -4,7 +4,6 @@ export default function decorate(block) {
 	staticBanner.classList.add('staticBanner');
 	rows.forEach((item, index) => {
 		if (index == 3) {
-			console.log(item);
 			const createImg = document.createElement('img');
 			createImg.classList.add('bannerStatic');
 			createImg.src = item.querySelector('img').src;

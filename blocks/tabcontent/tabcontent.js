@@ -28,6 +28,8 @@ export default function decorate(block) {
             if(c==1){
                 const innerRows = [...col.children];
                 innerRows.forEach((innerRow, ir) => {
+                    console.log('Soura2');
+                    console.log(innerRow);
                     const innerCols = [...innerRow.children];
                     const itemCard = document.createElement('div');
                     itemCard.classList.add('itemCard');

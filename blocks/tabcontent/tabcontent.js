@@ -5,12 +5,12 @@ export default function decorate(block) {
     const tabList = document.createElement('ul');
     tabList.classList.add('tabList');
 	rows.forEach((row, r) => {
-        console.log('Soura');
-        console.log(row);
         const cols = [...row.children];
         const content = document.createElement('div');
         content.classList.add('content');
 		cols.forEach((col, c) => {
+            console.log('Soura');
+            console.log(col);
             const contentItem = document.createElement('div');
             contentItem.classList.add('contentItem');
             if(c==0){

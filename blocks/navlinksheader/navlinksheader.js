@@ -16,7 +16,7 @@ export default function decorate(block) {
 				}
 				sliderDiv.appendChild(newImage);
 			});
-			// Replace the original row with the new sliderDiv
+			// Replaced the original row with the new sliderDiv
 			row.replaceWith(sliderDiv);
 		}
 		if (r == 1) {

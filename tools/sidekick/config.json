@@ -1,0 +1,16 @@
+{
+    "project": "Adani POC",
+    "plugin": [
+        {
+            "id": "asset-library",
+            "tittle": "AEM Assets",
+            "environment": [
+                "edit"
+            ],
+            "url": "https://experience.adobe.com/solutions/CQ-assets-selectors/static-assets/resources/franklin/asset-selector.html",
+            "isPalette": true,
+            "passConfig": true,
+            "paletteRect": "top: 50px; bottom: 10px; right: 10px; left: atuo; width: 400px; height: calc(100vh-60px);"
+        }
+    ]
+}

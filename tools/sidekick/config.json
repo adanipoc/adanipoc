@@ -1,6 +1,6 @@
 {
     "project": "Adani POC",
-    "plugin": [
+    "plugins": [
         {
             "id": "asset-library",
             "tittle": "AEM Assets",

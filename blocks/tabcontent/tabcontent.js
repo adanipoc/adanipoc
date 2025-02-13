@@ -5,7 +5,7 @@ export default function decorate(block) {
     const tabList = document.createElement('ul');
     tabList.classList.add('tabList');
 	rows.forEach((row, r) => {
-        console('hey'+row);
+        console.log('hey'+row);
         const cols = [...row.children];
         const content = document.createElement('div');
         content.classList.add('content');

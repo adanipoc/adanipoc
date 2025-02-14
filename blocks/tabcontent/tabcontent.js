@@ -7,12 +7,12 @@ export default function decorate(block) {
     var dataIndex = -1;
     const content = document.createElement('div');
     content.classList.add('content');
+    const contentItem = document.createElement('div');
+    contentItem.classList.add('contentItem');
 	rows.forEach((row, r) => {
         const cols = [...row.children];
         const tabItem = document.createElement('li');
-        tabItem.classList.add('tabItem');
-        const contentItem = document.createElement('div');
-        contentItem.classList.add('contentItem');
+        tabItem.classList.add('tabItem');        
         const itemCard = document.createElement('div');
         itemCard.classList.add('itemCard');
         const img = document.createElement('img');
@@ -46,7 +46,13 @@ export default function decorate(block) {
                 }
             }
         });
-        contentItem.appendChild(itemCard);
+        if(cols.length == 1 || r==rows.length-1){
+            contentItem.setAttribute(data-index,dataIndex);
+            if(r==0){
+                contentItem.classList.add('active');
+            }
+            contentItem.appendChild(itemCard);
+        }
         console.log(contentItem);
         console.log('contentItem');
 	});

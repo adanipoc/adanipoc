@@ -51,10 +51,11 @@ export default function decorate(block) {
                     contentItem.classList.add('active');
                 }
                 contentItem.appendChild(itemCard);
+                console.log(contentItem);
+                console.log('contentItem');
             }
         });        
-        console.log(contentItem);
-        console.log('contentItem');
+        
 	});
     console.log(tabList);
 }

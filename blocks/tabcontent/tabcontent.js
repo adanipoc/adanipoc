@@ -45,19 +45,18 @@ export default function decorate(block) {
                     itemCard.appendChild(subHeading);
                 }
             }
-            if((cols.length == 1 && r!=0) || r==rows.length-1){
-                alert('done');
-                alert(cols.length+" "+r+" "+rows.length);
-                contentItem.setAttribute('data-index',dataIndex);
-                if(r==0){
-                    contentItem.classList.add('active');
-                }
-                contentItem.appendChild(itemCard);
-                console.log(contentItem);
-                console.log('contentItem');
-            }
         });        
-        
+        if((cols.length == 1 && r!=0) || r==rows.length-1){
+            alert('done');
+            alert(cols.length+" "+r+" "+rows.length);
+            contentItem.setAttribute('data-index',dataIndex);
+            if(r==0){
+                contentItem.classList.add('active');
+            }
+            contentItem.appendChild(itemCard);
+            console.log(contentItem);
+            console.log('contentItem');
+        }
 	});
     console.log(tabList);
 }

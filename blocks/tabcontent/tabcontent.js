@@ -67,3 +67,12 @@ export default function decorate(block) {
     tabContent.appendChild(content);
     block.replaceWith(tabContent);
 }
+
+$(document).ready(function () {
+	$('.tabList').on('click', '.tabItem', function () {
+		$('.tabItem').removeClass('active');
+		$(this).addClass('active');
+		$('.contentItem').removeClass('active');
+		$(`.contentItem[data-index="${$(this).attr('data-index')}`).addClass('active');
+	});
+});

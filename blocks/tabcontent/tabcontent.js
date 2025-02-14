@@ -23,7 +23,6 @@ export default function decorate(block) {
         title.classList.add('title');
         subHeading.classList.add('subHeading');
         cols.forEach((col, c) => {
-            alert(cols.length);
             if(cols.length == 1){
                 alert(dataIndex);
                 dataIndex++;

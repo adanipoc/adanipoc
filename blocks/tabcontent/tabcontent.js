@@ -24,7 +24,6 @@ export default function decorate(block) {
         subHeading.classList.add('subHeading');
         cols.forEach((col, c) => {
             if(cols.length == 1){
-                alert(dataIndex);
                 dataIndex++;
                 tabItem.textContent = col.querySelector('p').textContent;
                 tabItem.setAttribute('data-index',dataIndex);
@@ -57,4 +56,5 @@ export default function decorate(block) {
         console.log(contentItem);
         console.log('contentItem');
 	});
+    console.log(tabList);
 }

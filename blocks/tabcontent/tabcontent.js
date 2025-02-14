@@ -45,14 +45,14 @@ export default function decorate(block) {
                     itemCard.appendChild(subHeading);
                 }
             }
-        });
-        if(cols.length == 1 || r==rows.length-1){
-            contentItem.setAttribute('data-index',dataIndex);
-            if(r==0){
-                contentItem.classList.add('active');
+            if((cols.length == 1 && r!=0) || r==rows.length-1){
+                contentItem.setAttribute('data-index',dataIndex);
+                if(r==0){
+                    contentItem.classList.add('active');
+                }
+                contentItem.appendChild(itemCard);
             }
-            contentItem.appendChild(itemCard);
-        }
+        });        
         console.log(contentItem);
         console.log('contentItem');
 	});

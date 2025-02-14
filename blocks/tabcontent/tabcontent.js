@@ -66,10 +66,11 @@ export default function decorate(block) {
     tabContent.appendChild(tabList);
     tabContent.appendChild(content);
     tabList.addEventListener('click', (event) => {
-        $('.tabItem').removeClass('active');
-		$(this).addClass('active');
-		$('.contentItem').removeClass('active');
-		$(`.contentItem[data-index="${$(this).attr('data-index')}`).addClass('active');
+        document.querySelectorAll('.tabItem').forEach(tab => tab.classList.remove('active'));
+        event.target.classList.add('active');
+        document.querySelectorAll('.contentItem').forEach(content => content.classList.remove('active'));
+        const dataIndex = event.target.getAttribute('data-index');
+        document.querySelector(`.contentItem[data-index="${dataIndex}"]`)?.classList.add('active');
     });
     block.replaceWith(tabContent);
 }

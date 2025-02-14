@@ -53,7 +53,7 @@ export default function decorate(block) {
         if((cols.length == 1 && r!=0) || r==rows.length-1){
             contentItemdataIndex++;
             contentItem.setAttribute('data-index',contentItemdataIndex);
-            if(r==0){
+            if(contentItemdataIndex==0){
                 contentItem.classList.add('active');
             }
             content.appendChild(contentItem);
@@ -63,4 +63,7 @@ export default function decorate(block) {
 	});
     console.log(tabList);
     console.log(content);
+    tabContent.appendChild(tabList);
+    tabContent.appendChild(content);
+    block.replaceWith(tabContent);
 }

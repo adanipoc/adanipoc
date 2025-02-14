@@ -47,6 +47,7 @@ export default function decorate(block) {
             }
             if((cols.length == 1 && r!=0) || r==rows.length-1){
                 alert('done');
+                alert(cols.length+" "+r+" "+rows.length);
                 contentItem.setAttribute('data-index',dataIndex);
                 if(r==0){
                     contentItem.classList.add('active');

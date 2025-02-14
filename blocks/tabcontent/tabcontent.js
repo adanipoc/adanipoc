@@ -5,6 +5,7 @@ export default function decorate(block) {
     const tabList = document.createElement('ul');
     tabList.classList.add('tabList');
     var dataIndex = -1;
+    var contentItemdataIndex = -1;
     const content = document.createElement('div');
     content.classList.add('content');
     var contentItem = document.createElement('div');
@@ -50,7 +51,8 @@ export default function decorate(block) {
             }
         });        
         if((cols.length == 1 && r!=0) || r==rows.length-1){
-            contentItem.setAttribute('data-index',dataIndex);
+            contentItemdataIndex++;
+            contentItem.setAttribute('data-index',contentItemdataIndex);
             if(r==0){
                 contentItem.classList.add('active');
             }

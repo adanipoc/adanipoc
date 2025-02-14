@@ -47,7 +47,7 @@ export default function decorate(block) {
             }
         });
         if(cols.length == 1 || r==rows.length-1){
-            contentItem.setAttribute(data-index,dataIndex);
+            contentItem.setAttribute('data-index',dataIndex);
             if(r==0){
                 contentItem.classList.add('active');
             }

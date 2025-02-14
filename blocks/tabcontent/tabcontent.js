@@ -46,6 +46,6 @@ export default function decorate(block) {
                 }
             }
         });
-        console.log(itemCard);
+        contentItem.appendChild(itemCard);
 	});
 }

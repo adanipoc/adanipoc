@@ -20,7 +20,7 @@ export default function decorate(block) {
         const subHeading = document.createElement('p');
         img.setAttribute('width','46px');
         img.setAttribute('height','46px');
-        title.className.add('title');
+        title.classList.add('title');
         subHeading.classList.add('subHeading');
         cols.forEach((col, c) => {
             if(cols.length == 1){

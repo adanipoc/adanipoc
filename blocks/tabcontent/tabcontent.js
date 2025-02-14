@@ -9,12 +9,12 @@ export default function decorate(block) {
     content.classList.add('content');
     const contentItem = document.createElement('div');
     contentItem.classList.add('contentItem');
+    const itemCard = document.createElement('div');
+    itemCard.classList.add('itemCard');
 	rows.forEach((row, r) => {
         const cols = [...row.children];
         const tabItem = document.createElement('li');
         tabItem.classList.add('tabItem');        
-        const itemCard = document.createElement('div');
-        itemCard.classList.add('itemCard');
         const img = document.createElement('img');
         const title = document.createElement('p');
         const subHeading = document.createElement('p');
@@ -43,20 +43,22 @@ export default function decorate(block) {
                 if(c==2){
                     subHeading.textContent = col.querySelector('p').textContent;
                     itemCard.appendChild(subHeading);
+                    contentItem.appendChild(itemCard);
+                    itemCard = document.createElement('div');
+                    itemCard.classList.add('itemCard');
                 }
             }
         });        
         if((cols.length == 1 && r!=0) || r==rows.length-1){
-            alert('done');
-            alert(cols.length+" "+r+" "+rows.length);
             contentItem.setAttribute('data-index',dataIndex);
             if(r==0){
                 contentItem.classList.add('active');
             }
-            contentItem.appendChild(itemCard);
-            console.log(contentItem);
-            console.log('contentItem');
+            content.appendChild(contentItem);
+            contentItem = document.createElement('div');
+            contentItem.classList.add('contentItem');
         }
 	});
     console.log(tabList);
+    console.log(content);
 }

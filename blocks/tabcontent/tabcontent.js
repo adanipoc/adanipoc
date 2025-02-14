@@ -7,9 +7,9 @@ export default function decorate(block) {
     var dataIndex = -1;
     const content = document.createElement('div');
     content.classList.add('content');
-    const contentItem = document.createElement('div');
+    var contentItem = document.createElement('div');
     contentItem.classList.add('contentItem');
-    const itemCard = document.createElement('div');
+    var itemCard = document.createElement('div');
     itemCard.classList.add('itemCard');
 	rows.forEach((row, r) => {
         const cols = [...row.children];

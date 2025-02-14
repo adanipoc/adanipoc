@@ -45,6 +45,7 @@ export default function decorate(block) {
                     itemCard.appendChild(subHeading);
                 }
             }
+            alert(cols.length +" "+r+" "+rows.length);
             if((cols.length == 1 && r!=0) || r==rows.length-1){
                 contentItem.setAttribute('data-index',dataIndex);
                 if(r==0){

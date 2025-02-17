@@ -1,8 +1,8 @@
 .tabcontent {
 	display: flex;
 	flex-direction: column;
-	padding: 100px 0;
-	max-width: calc(100% - 160px);
+	padding: 60px 0;
+	max-width: 1120px;
 	margin: 0 auto;
 	ul.tabList {
 		display: flex;

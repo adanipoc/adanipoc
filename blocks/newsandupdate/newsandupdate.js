@@ -29,7 +29,7 @@ export default function decorate(block) {
                 const image = document.createElement('img');
                 image.setAttribute('width','186px');
                 image.setAttribute('alt','adani');
-                image.src = col.querySelector(img).src;
+                image.src = col.querySelector('img').src;
                 rightLayout.appendChild(image);
                 const updates = document.createElement('div');
                 updates.classList.add('updates');

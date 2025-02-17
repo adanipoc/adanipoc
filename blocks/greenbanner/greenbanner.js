@@ -25,18 +25,17 @@ export default function decorate(block) {
 				cols.forEach((col, c) => {
 					const item = document.createElement('item');
 					item.classList.add('item');
-					const ul = col.querySelector('ul');
-					ul.querySelectorAll('li').forEach((li, i) => {
+					col.querySelectorAll('p').forEach((p, i) => {
 						if(i==0){
 							const liHeading = document.createElement('p');
 							liHeading.classList.add('heading');
-							liHeading.textContent = row.textContent;
+							liHeading.textContent = p.textContent;
 							item.appendChild(liHeading);
 						}
 						if(i==1){
 							const liSubHeading = document.createElement('p');
 							liSubHeading.classList.add('subHeading');
-							liSubHeading.textContent = row.textContent;
+							liSubHeading.textContent = p.textContent;
 							item.appendChild(liSubHeading);
 						}
 					});
@@ -92,7 +91,7 @@ export default function decorate(block) {
 			}
 		});
 	}
-	// block.innerHTML = '';
-	// block.appendChild(maskArea);
-	// block.appendChild(img);
+	block.innerHTML = '';
+	block.appendChild(maskArea);
+	block.appendChild(img);
 }

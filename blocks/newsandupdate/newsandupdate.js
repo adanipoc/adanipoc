@@ -10,7 +10,6 @@ export default function decorate(block) {
             if(c==0){
                 const heading = document.createElement('p');
                 heading.classList.add('heading');
-                
                 heading.textContent = col.querySelector('p').textContent;
                 leftLayout.appendChild(heading);
                 const ul = col.querySelector('ul');
@@ -20,6 +19,10 @@ export default function decorate(block) {
                     subHeading.textContent = li.textContent;
                     leftLayout.appendChild(subHeading);
                 });
+                const viewAll = document.createElement('a');
+                viewAll.classList.add('viewAll');
+                viewAll.textContent = col.querySelector('a').textContent;
+                viewAll.href = col.querySelector('a').href;
                 console.log(leftLayout);
             }
         });

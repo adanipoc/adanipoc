@@ -36,7 +36,7 @@ export default function decorate(block) {
                 const quote = document.createElement('img');
                 quote.classList.add('quote');
                 quote.src = '../../quote.png';
-                updates.appendChild('quote');
+                updates.appendChild(quote);
                 const ul = col.querySelector('ul');
                 ul.querySelectorAll('li').forEach((li, i) => {
                     if(i==0){

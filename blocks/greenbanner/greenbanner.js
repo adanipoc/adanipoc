@@ -32,7 +32,7 @@ export default function decorate(block) {
 				bgImg.classList.add('bgImg');
 				bgImg.src = row.querySelector('img').src;
 				bgImg.setAttribute('width','auto');
-				height.setAttribute('width','auto');
+				bgImg.setAttribute('height','auto');
 				img.appendChild(bgImg);
 			}
 		});

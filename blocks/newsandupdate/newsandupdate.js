@@ -15,7 +15,7 @@ export default function decorate(block) {
                 heading.textContent = col.querySelector('p').textContent;
                 leftLayout.appendChild(heading);
                 const ul = col.querySelector('ul');
-                ul.forEach((li, i) => {
+                ul.querySelectorAll('li').forEach(li => {
                     subHeading.textContent = li.textContent;
                     leftLayout.appendChild(subHeading);
                 });

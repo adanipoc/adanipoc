@@ -10,12 +10,13 @@ export default function decorate(block) {
             if(c==0){
                 const heading = document.createElement('p');
                 heading.classList.add('heading');
-                var subHeading = document.createElement('p');
-                subHeading.classList.add('subHeading');
+                
                 heading.textContent = col.querySelector('p').textContent;
                 leftLayout.appendChild(heading);
                 const ul = col.querySelector('ul');
                 ul.querySelectorAll('li').forEach(li => {
+                    const subHeading = document.createElement('p');
+                    subHeading.classList.add('subHeading');
                     subHeading.textContent = li.textContent;
                     leftLayout.appendChild(subHeading);
                 });

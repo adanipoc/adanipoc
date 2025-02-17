@@ -61,8 +61,6 @@ export default function decorate(block) {
             contentItem.classList.add('contentItem');
         }
 	});
-    console.log(tabList);
-    console.log(content);
     tabContent.appendChild(tabList);
     tabContent.appendChild(content);
     tabList.addEventListener('click', (event) => {
@@ -72,6 +70,8 @@ export default function decorate(block) {
         const dataIndex = event.target.getAttribute('data-index');
         document.querySelector(`.contentItem[data-index="${dataIndex}"]`)?.classList.add('active');
     });
+    console.log(block);
     block.innerHTML = '';
+    console.log(block);
     block.replaceWith(tabContent);
 }

@@ -21,7 +21,7 @@ export default function decorate(block) {
 				maskArea.appendChild(subHeading);
 			}
 			if(r==2){
-				const whiteBtn = document.createElement('p');
+				const whiteBtn = document.createElement('a');
 				whiteBtn.classList.add('whiteBtn');
 				whiteBtn.textContent = row.querySelector('a').textContent;
 				whiteBtn.href = row.querySelector('a').href;

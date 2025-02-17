@@ -70,5 +70,6 @@ export default function decorate(block) {
         const dataIndex = event.target.getAttribute('data-index');
         document.querySelector(`.contentItem[data-index="${dataIndex}"]`)?.classList.add('active');
     });
+    block.innerHTML = '';
     block.appendChild(tabContent);
 }

@@ -33,10 +33,6 @@ export default function decorate(block) {
                 rightLayout.appendChild(image);
                 const updates = document.createElement('div');
                 updates.classList.add('updates');
-                const quote = document.createElement('img');
-                quote.classList.add('quote');
-                quote.src = '../../quote.png';
-                updates.appendChild(quote);
                 const ul = col.querySelector('ul');
                 ul.querySelectorAll('li').forEach((li, i) => {
                     if(i==0){
@@ -44,6 +40,10 @@ export default function decorate(block) {
                         heading.classList.add('heading');
                         heading.textContent = li.textContent;
                         updates.appendChild(heading);
+                        const quote = document.createElement('img');
+                        quote.classList.add('quote');
+                        quote.src = '../../icons/quote.png';
+                        updates.appendChild(quote);
                     }
                     if(i==1){
                         const heroTxt = document.createElement('p');

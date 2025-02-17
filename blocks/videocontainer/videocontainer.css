@@ -1,9 +1,9 @@
 [data-block-name="videocontainer"] {
-	max-width: calc(100% - 160px);
+	max-width: 1120px;
 	margin: 0 auto;
 	display: grid;
 	grid-template-columns: 2.5fr 1fr;
-	padding: 48px 0 56px;
+	padding: 48px 0 28px;
 	grid-gap: 16px 86px;
 	.videoMain {
 		grid-column: 1 / 2;

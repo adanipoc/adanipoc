@@ -9,7 +9,12 @@
  * OF ANY KIND, either express or implied. See the License for the specific language
  * governing permissions and limitations under the License.
  */
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+body * {
+  font-family: "Nunito", serif;
+  font-weight: 500;
+  font-style: normal;
+}
 :root {
   /* colors */
   --background-color: white;
@@ -42,18 +47,18 @@
 
 /* fallback fonts */
 @font-face {
-  font-family: roboto-condensed-fallback;
+  font-family: "Nunito", serif;
   size-adjust: 88.82%;
   src: local('Arial');
 }
 
 @font-face {
-  font-family: roboto-fallback;
+  font-family: "Nunito", serif;
   size-adjust: 99.529%;
   src: local('Arial');
 }
 
-@media (width >= 900px) {
+@media (width >=900px) {
   :root {
     /* body sizes */
     --body-font-size-m: 18px;
@@ -112,12 +117,24 @@ h6 {
   scroll-margin: 40px;
 }
 
-h1 { font-size: var(--heading-font-size-xxl); }
-h2 { font-size: var(--heading-font-size-xl); }
-h3 { font-size: var(--heading-font-size-l); }
-h4 { font-size: var(--heading-font-size-m); }
-h5 { font-size: var(--heading-font-size-s); }
-h6 { font-size: var(--heading-font-size-xs); }
+h1 {
+  font-size: var(--heading-font-size-xxl);
+}
+h2 {
+  font-size: var(--heading-font-size-xl);
+}
+h3 {
+  font-size: var(--heading-font-size-l);
+}
+h4 {
+  font-size: var(--heading-font-size-m);
+}
+h5 {
+  font-size: var(--heading-font-size-s);
+}
+h6 {
+  font-size: var(--heading-font-size-xs);
+}
 
 p,
 dl,
@@ -242,7 +259,7 @@ main img {
   margin-top: 0;
 } */
 
-@media (width >= 900px) {
+@media (width >=900px) {
   /* main > .section > div {
     padding: 0 32px;
   } */

@@ -1,5 +1,5 @@
 [data-block-name="customfooter"] {
-	max-width: calc(100% - 160px);
+	max-width: 1120px;
 	margin: 0 auto;
 	display: grid;
 	padding: 48px 0 51px;

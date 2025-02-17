@@ -1,5 +1,8 @@
-.newsandupdate {
+.newsandupdate-wrapper{
 	background: transparent linear-gradient(72deg, #E3F2FF 0%, #FDEFFC 100%) 0% 0% no-repeat padding-box;
+}
+
+.newsandupdate {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;

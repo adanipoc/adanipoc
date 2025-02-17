@@ -27,7 +27,6 @@ export default function decorate(block) {
             }
             if(c==1){
                 const image = document.createElement('img');
-                image.setAttribute('width','186px');
                 image.setAttribute('alt','adani');
                 image.src = col.querySelector('img').src;
                 rightLayout.appendChild(image);

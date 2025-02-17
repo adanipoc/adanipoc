@@ -89,6 +89,7 @@
 		}
 		img {
 			align-self: flex-end;
+            width: 186px;
 		}
 	}
 }

@@ -37,4 +37,7 @@ export default function decorate(block) {
 			}
 		});
 	}
+	block.innerHTML = '';
+	block.appendChild(maskArea);
+	block.appendChild(img);
 }

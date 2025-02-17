@@ -1,4 +1,5 @@
 export default function decorate(block) {
+    console.log(block.classList);
 	const rows = [...block.children];
     const tabContent = document.createElement('div');
     tabContent.classList.add('tabContent');

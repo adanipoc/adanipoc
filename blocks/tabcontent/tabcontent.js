@@ -1,8 +1,5 @@
 export default function decorate(block) {
-    console.log(block.classList);
 	const rows = [...block.children];
-    const tabContent = document.createElement('div');
-    tabContent.classList.add('tabContent');
     const tabList = document.createElement('ul');
     tabList.classList.add('tabList');
     var dataIndex = -1;
@@ -62,8 +59,6 @@ export default function decorate(block) {
             contentItem.classList.add('contentItem');
         }
 	});
-    tabContent.appendChild(tabList);
-    tabContent.appendChild(content);
     tabList.addEventListener('click', (event) => {
         document.querySelectorAll('.tabItem').forEach(tab => tab.classList.remove('active'));
         event.target.classList.add('active');
@@ -72,5 +67,6 @@ export default function decorate(block) {
         document.querySelector(`.contentItem[data-index="${dataIndex}"]`)?.classList.add('active');
     });
     block.innerHTML = '';
-    block.appendChild(tabContent);
+    block.appendChild(tabList);
+    block.appendChild(content);
 }

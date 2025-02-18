@@ -9,13 +9,9 @@ export default function decorate(block) {
             const heroImg = document.createElement('img');
             heroImg.classList.add('heroImg');
             heroImg.src = row.querySelector('img').src;
-            heroImg.setAttribute('width','100%');
-            heroImg.setAttribute('height','100%');
             const playIcon = document.createElement('img');
             playIcon.classList.add('playIcon');
             playIcon.src = '../../icons/play_circle.png';
-            playIcon.setAttribute('width','75');
-            playIcon.setAttribute('height','75');
             heroSection.appendChild(heroImg);
             heroSection.appendChild(playIcon);
         } else{
@@ -27,8 +23,6 @@ export default function decorate(block) {
                     const cardImage = document.createElement('img');
                     cardImage.classList.add('cardImage');
                     cardImage.src = col.querySelector('img').src;
-                    cardImage.setAttribute('width','100%');
-                    cardImage.setAttribute('height','100%');
                     vCardItem.appendChild(cardImage);
                 }
                 if(c==1){

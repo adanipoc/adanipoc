@@ -48,8 +48,8 @@ export default function decorate(block) {
     imgPrev.setAttribute('height','20px');
     imgNext.setAttribute('width','20px');
     imgNext.setAttribute('height','20px');
-    imgPrev.src = '../../icons/slide-arrow.png';
-    imgNext.src = '../../icons/slide-arrow.png';
+    imgPrev.src = '../../icons/slide-arrow.svg';
+    imgNext.src = '../../icons/slide-arrow.svg';
     carouselWrapper.appendChild(imgPrev);
     carouselWrapper.appendChild(carousel);
     carouselWrapper.appendChild(imgNext);
@@ -60,4 +60,53 @@ export default function decorate(block) {
     cardscarousal.appendChild(cardWrapper);
     block.innerHTML = '';
     block.appendChild(cardscarousal);
+    // ** Carousel Functionality **
+    const slidesToShow = 5;  // Number of slides to show at once
+    const slidesToMove = 1;  // Number of slides to move per click
+    const mainWidth = carouselWrapper.offsetWidth;  // Get the width of the wrapper
+    const carouselItemList = document.querySelectorAll(".carouselItem");
+    
+    let currentIndex = 0;
+    const totalSlides = carouselItemList.length;
+    
+    // Set individual item width
+    const itemWidth = mainWidth / slidesToShow - 31; 
+    carouselItemList.forEach(item => item.style.width = `${itemWidth}px`);
+
+    // Set the total carousel width
+    carouselItems.style.width = `${itemWidth * totalSlides}px`;
+
+    // Function to move the carousel
+    function moveCarousel() {
+        const offset = -currentIndex * itemWidth;
+        carouselItems.style.transform = `translateX(${offset}px)`;
+    }
+
+    // Next Button functionality
+    next.addEventListener("click", () => {
+        if (currentIndex + slidesToMove < totalSlides - slidesToShow) {
+            currentIndex += slidesToMove;
+            prev.classList.remove('disabled');  // Enable prev button
+        } else {
+            next.classList.add('disabled');  // Disable next button at the end
+            currentIndex = totalSlides - slidesToShow;
+        }
+        moveCarousel();
+    });
+
+    // Prev Button functionality
+    prev.addEventListener("click", () => {
+        if (currentIndex - slidesToMove >= 0) {
+            next.classList.remove('disabled');  // Enable next button
+            currentIndex -= slidesToMove;
+        } else {
+            prev.classList.add('disabled');  // Disable prev button at start
+            currentIndex = 0;
+        }
+        moveCarousel();
+    });
+
+    // Initial setup
+    carouselItems.style.display = 'flex';
+    carouselItems.style.transition = 'transform 0.3s ease-in-out';
 }

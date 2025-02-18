@@ -67,7 +67,7 @@ export default function decorate(block) {
             }
         });
     });
-    // block.innerHTML = '';
-    // block.appendChild(leftLayout);
-    // block.appendChild(rightLayout);
+    block.innerHTML = '';
+    block.appendChild(leftLayout);
+    block.appendChild(rightLayout);
 }

@@ -1,0 +1,77 @@
+.cardscarousal {
+	max-width: 1120px;
+	margin: 0 auto;
+	padding: 50px 0;
+	h1.heading {
+		font-size: 24px;
+		line-height: 30px;
+		margin: 0 0 20px 0;
+		font-weight: bold;
+	}
+	.carousel-wrapper {
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+		position: relative;
+		.carousel {
+			display: flex;
+			transition: transform 0.5s ease;
+			padding: 0 0 60px 0;
+			overflow: hidden;
+			.carouselItems {
+				display: flex;
+				transition: all .3s ease-in-out;
+			}
+			.carouselItem {
+				margin-right: 38px;
+				background-color: #fff;
+				padding: 0px;
+				overflow: hidden;
+				text-align: center;
+				box-shadow: 0px 3px 12px #00000024;
+				border-radius: 10px;
+				p.heading {
+					font-size: 16px;
+					line-height: 20px;
+					font-weight: bold;
+					padding: 20px 0;
+					margin: 0;
+				}
+				img {
+					width: 100%;
+				}
+			}
+
+		}
+		.slider-arrow {
+			color: white;
+			position: absolute;
+			bottom: 6px;
+			right: 10px;
+			z-index: 2;
+			background: #FFFFFF 0% 0% no-repeat padding-box;
+			box-shadow: 0px 2px 7px #00000029;
+			border: none;
+			border-radius: 50px;
+			width: 36px;
+			height: 36px;
+			&:focus {
+				outline: none;
+			}
+			img {
+				transition: all .3s ease-in-out;
+			}
+			&.disabled {
+				img {
+					filter: opacity(0.2);
+				}
+			}
+			&.prev {
+				right: 60px;
+				img {
+					rotate: 180deg;
+				}
+			}
+		}
+	}
+}

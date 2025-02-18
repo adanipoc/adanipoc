@@ -6,6 +6,8 @@ export default function decorate(block) {
     carouselWrapper.classList.add('carousel-wrapper');
     const carousel = document.createElement('div');
     carousel.classList.add('carousel');
+    const carouselItems = document.createElement('div');
+    carouselItems.classList.add('carouselItems');
     rows.forEach((row, r) => {
         if(r==0){
             const heading = document.createElement('h1');
@@ -13,8 +15,6 @@ export default function decorate(block) {
             heading.textContent = row.querySelector('p').textContent;
             cardscarousal.appendChild(heading);
         } else{
-            const carouselItems = document.createElement('div');
-            carouselItems.classList.add('carouselItems');
             const carouselItem = document.createElement('div');
             carouselItem.classList.add('carouselItem');
             const cols = [...row.children];

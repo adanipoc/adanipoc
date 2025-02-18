@@ -70,7 +70,7 @@ export default function decorate(block) {
     const totalSlides = carouselItemList.length;
     
     // Set individual item width
-    const itemWidth = mainWidth / slidesToShow - 31; 
+    const itemWidth = mainWidth / slidesToShow ; 
     carouselItemList.forEach(item => item.style.width = `${itemWidth}px`);
 
     // Set the total carousel width

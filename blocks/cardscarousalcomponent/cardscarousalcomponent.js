@@ -1,5 +1,5 @@
 export default function decorate(block) {
-	const rows = [...block.children];
+    const rows = [...block.children];
     const cardscarousal = document.createElement('div');
     cardscarousal.classList.add('cardscarousal');
     const carouselWrapper = document.createElement('div');
@@ -9,104 +9,112 @@ export default function decorate(block) {
     const carouselItems = document.createElement('div');
     carouselItems.classList.add('carouselItems');
     rows.forEach((row, r) => {
-        if(r==0){
+        if (r == 0) {
             const heading = document.createElement('h1');
             heading.classList.add('heading');
             heading.textContent = row.querySelector('p').textContent;
             cardscarousal.appendChild(heading);
-        } else{
+        } else {
             const carouselItem = document.createElement('div');
             carouselItem.classList.add('carouselItem');
             const cols = [...row.children];
-            cols.forEach((col , c) => {
-                if(c==0){
+            console.log(rows.length - 1);
+            cols.forEach((col, c) => {
+                if (c == 0) {
                     const img = document.createElement('img');
                     img.src = col.querySelector('img').src;
-                    img.setAttribute('width','auto');
-                    img.setAttribute('height','auto');
-                    img.setAttribute('loading','lazy');
+                    img.setAttribute('width', 'auto');
+                    img.setAttribute('height', 'auto');
+                    img.setAttribute('loading', 'lazy');
                     carouselItem.appendChild(img);
                 }
-                if(c==1){
+                if (c == 1) {
                     const heading = document.createElement('p');
                     heading.classList.add('heading');
                     heading.textContent = col.querySelector('p').textContent;
                     carouselItem.appendChild(heading);
                 }
+                carouselItem.style.width = '194px';
                 carouselItems.appendChild(carouselItem);
+                // carouselItems.style.widows = 
             });
         }
     });
+    carouselItems.style.width = `${carouselItems.children.length * 194}px`;
     carousel.appendChild(carouselItems);
-    const prev = document.createElement('button');
-    prev.classList.add('prev', 'slider-arrow');
-    const next = document.createElement('button');
-    next.classList.add('next', 'slider-arrow');
-    const imgPrev = document.createElement('img');
-    const imgNext = document.createElement('img');
-    imgPrev.setAttribute('width','20px');
-    imgPrev.setAttribute('height','20px');
-    imgNext.setAttribute('width','20px');
-    imgNext.setAttribute('height','20px');
-    imgPrev.src = '../../icons/slide-arrow.svg';
-    imgNext.src = '../../icons/slide-arrow.svg';
-    carouselWrapper.appendChild(imgPrev);
+
+
+    let currentIndex = 0;
+    const slidesToShow = 5;  // Number of slides to show at once
+    const slidesToMove = 1;
+    // const carouselItems = document.querySelector('.carouselItems'); // Ensure you have this reference
+    const totalSlides = carouselItems.children.length;
+
+    // Create Left Button
+    const leftBtn = document.createElement('button');
+    leftBtn.classList.add('prev', 'slider-arrow');
+    // leftBtn.innerHTML = `<img src="../../icons/slide-arrow.svg" width="20px" height="20px" alt="prev" />`;
+    leftBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            currentIndex -= slidesToMove;  // Move to the previous slide
+        }
+        const translateX = 220 * currentIndex; // Adjust with the actual width of carousel item
+
+        // Disable left button when at the start
+        if (currentIndex === 0) {
+            leftBtn.classList.add('disabled');
+        } else {
+            leftBtn.classList.remove('disabled');
+        }
+
+        // Enable right button
+        if (currentIndex < totalSlides - slidesToShow) {
+            rightBtn.classList.remove('disabled');
+        }
+
+        // Move carousel
+        carouselItems.style.transform = `translateX(-${translateX}px)`;
+    });
+    carouselWrapper.appendChild(leftBtn);
+
+    // Create Right Button
+    const rightBtn = document.createElement('button');
+    rightBtn.classList.add('next', 'slider-arrow');
+    // rightBtn.innerHTML = `<img src="../../icons/slide-arrow.svg" width="20px" height="20px" alt="prev" />`;
+    rightBtn.addEventListener('click', () => {
+        if (currentIndex < totalSlides - slidesToShow) {
+            currentIndex += slidesToMove;  // Move to the next slide
+        }
+
+        const translateX = 220 * currentIndex; // Adjust with the actual width of carousel item
+
+        // Disable right button when at the end
+        if (currentIndex >= totalSlides - slidesToShow) {
+            rightBtn.classList.add('disabled');
+        } else {
+            rightBtn.classList.remove('disabled');
+        }
+
+        // Enable left button
+        if (currentIndex > 0) {
+            leftBtn.classList.remove('disabled');
+        }
+
+        // Move carousel
+        carouselItems.style.transform = `translateX(-${translateX}px)`;
+    });
+    carouselWrapper.appendChild(rightBtn);
+
+
+    // cardscarousal.appendChild(rightBtn);
+
     carouselWrapper.appendChild(carousel);
-    carouselWrapper.appendChild(imgNext);
     const cardWrapper = document.createElement('div');
     cardWrapper.classList.add('cardWrapper');
     cardWrapper.appendChild(carouselWrapper);
-    cardWrapper.setAttribute('data-slidetoshow',5);
+    cardWrapper.setAttribute('data-slidetoshow', 5);
     cardscarousal.appendChild(cardWrapper);
+
     block.innerHTML = '';
     block.appendChild(cardscarousal);
-    // ** Carousel Functionality **
-    const slidesToShow = 5;  // Number of slides to show at once
-    const slidesToMove = 1;  // Number of slides to move per click
-    const mainWidth = carouselWrapper.offsetWidth;  // Get the width of the wrapper
-    const carouselItemList = document.querySelectorAll(".carouselItem");
-    
-    let currentIndex = 0;
-    const totalSlides = carouselItemList.length;
-    
-    // Set individual item width
-    const itemWidth = mainWidth / slidesToShow ; 
-    carouselItemList.forEach(item => item.style.width = `${itemWidth}px`);
-
-    // Set the total carousel width
-    carouselItems.style.width = `${itemWidth * totalSlides}px`;
-
-    // Function to move the carousel
-    function moveCarousel() {
-        const offset = -currentIndex * itemWidth;
-        carouselItems.style.transform = `translateX(${offset}px)`;
-    }
-
-    // Next Button functionality
-    next.addEventListener("click", () => {
-        if (currentIndex + slidesToMove < totalSlides - slidesToShow) {
-            currentIndex += slidesToMove;
-            prev.classList.remove('disabled');  // Enable prev button
-        } else {
-            next.classList.add('disabled');  // Disable next button at the end
-            currentIndex = totalSlides - slidesToShow;
-        }
-        moveCarousel();
-    });
-
-    // Prev Button functionality
-    prev.addEventListener("click", () => {
-        if (currentIndex - slidesToMove >= 0) {
-            next.classList.remove('disabled');  // Enable next button
-            currentIndex -= slidesToMove;
-        } else {
-            prev.classList.add('disabled');  // Disable prev button at start
-            currentIndex = 0;
-        }
-        moveCarousel();
-    });
-
-    // Initial setup
-    carouselItems.style.display = 'flex';
-    carouselItems.style.transition = 'transform 0.3s ease-in-out';
 }

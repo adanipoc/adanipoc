@@ -1,3 +1,6 @@
+.cardscarousalcomponent[data-block-name="cardscarousalcomponent"] {
+	background-color: #E3F2FF;
+}
 .cardscarousal {
 	max-width: 1120px;
 	margin: 0 auto;
@@ -13,6 +16,7 @@
 		align-items: center;
 		overflow: hidden;
 		position: relative;
+		width: 100%;
 		.carousel {
 			display: flex;
 			transition: transform 0.5s ease;
@@ -30,6 +34,7 @@
 				text-align: center;
 				box-shadow: 0px 3px 12px #00000024;
 				border-radius: 10px;
+				min-width: 184px;
 				p.heading {
 					font-size: 16px;
 					line-height: 20px;
@@ -55,22 +60,25 @@
 			border-radius: 50px;
 			width: 36px;
 			height: 36px;
+			padding: 0px;
+			margin: 0px;
 			&:focus {
 				outline: none;
 			}
-			img {
-				transition: all .3s ease-in-out;
-			}
-			&.disabled {
-				img {
-					filter: opacity(0.2);
-				}
-			}
 			&.prev {
 				right: 60px;
-				img {
-					rotate: 180deg;
-				}
+				background-image: url(../../icons/slide-arrow.svg);
+				background-position: center center;
+				background-size: 10px;
+				rotate: 180deg;
+				background-repeat: no-repeat;
+				box-shadow: 2px 0px 7px #00000029;
+			}
+			&.next {
+				background-image: url(../../icons/slide-arrow.svg);
+				background-position: center center;
+				background-size: 10px;
+				background-repeat: no-repeat;
 			}
 		}
 	}

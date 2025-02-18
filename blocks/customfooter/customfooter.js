@@ -9,7 +9,7 @@ export default function decorate(block) {
 			if (colsHeading) {
 				colsHeading.textContent = item.querySelector('p').textContent;
 				colsHeading.classList.add('heading');
-				footerCol.setAttribute('data-order', index+1);
+				footerCol.setAttribute('data-order', index + 1);
 				footerCol.appendChild(colsHeading);
 				// item.replaceWith(colsHeading);
 			}
@@ -33,6 +33,19 @@ export default function decorate(block) {
 				iconsWrapper.appendChild(socialIcons);
 				footerCol.appendChild(iconsWrapper);
 			});
+		}
+		if (colsLength.length == 4) {
+			const bottomFooter = document.createElement('div');
+			colsLength.forEach((footerItem, i) => {
+				bottomFooter.classList.add('bottomFooter');
+				const footerTxt = document.createElement('p');
+				footerTxt.classList.add('footerTxt');
+				footerTxt.textContent = footerItem.textContent;
+				footerCol.setAttribute('data-bottom-footer', true);
+				// footerItem.replaceWith(footerTxt);
+				bottomFooter.appendChild(footerTxt);
+				footerCol.appendChild(bottomFooter)
+			})
 		}
 		item.replaceWith(footerCol);
 	})

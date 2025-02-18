@@ -1,0 +1,63 @@
+.videocards {
+	display: flex;
+	flex-direction: column;
+	max-width: 1120px;
+	margin: 60px auto;
+	gap: 40px;
+	.heroSection {
+		width: 100%;
+		position: relative;
+		.playIcon {
+			position: absolute;
+			inset: 0px;
+			margin: auto;
+			z-index: 2;
+			cursor: pointer;
+		}
+	}
+	.vcardWrapper {
+		display: flex;
+		align-items: stretch;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+		--columns: 3;
+		--gap: 56px;
+		--gap-count: calc(var(--columns) - 1);
+		gap: var(--gap);
+		min-height: 270px;
+		flex-wrap: wrap;
+		.vCardItem {
+			display: flex;
+			align-items: flex-start;
+			justify-content: flex-start;
+			flex-direction: column;
+			flex-basis: calc(calc(100% / var(--columns)) - calc(var(--gap) / var(--columns) * var(--gap-count)));
+			box-shadow: 0px 3px 12px #00000024;
+			border-radius: 10px;
+			img.cardImage {
+				height: 140px;
+				margin: 0 0 20px 0;
+			}
+			p.heading {
+				width: 100%;
+				font-size: 16px;
+				line-height: 22px;
+				margin: 0 0 10px 0;
+				padding: 0 20px;
+				font-weight: 500;
+				color: #000000;
+			}
+			p.subHeading {
+				font-size: 12px;
+				line-height: 14px;
+				padding: 0 20px;
+				font-weight: 400;
+				height: 56px;
+				width: 100%;
+				margin: 0 0 20px 0;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+		}
+	}
+}

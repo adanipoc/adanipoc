@@ -4,19 +4,16 @@ export default function decorate(block) {
 		const footerCol = document.createElement('div');
 		footerCol.classList.add('footerCol');
 		const colsLength = [...item.children];
-		console.log({ index });
 		if (colsLength.length == 2) {
 			const colsHeading = item.querySelector('p');
 			if (colsHeading) {
 				colsHeading.textContent = item.querySelector('p').textContent;
-				console.log(colsHeading, index);
 				colsHeading.classList.add('heading');
 				footerCol.setAttribute('data-order', index+1);
 				footerCol.appendChild(colsHeading);
 				// item.replaceWith(colsHeading);
 			}
 			const cols = [...item.children];
-			console.log(cols);
 			const NavLinkList = item.querySelector('ul')
 			if (NavLinkList) {
 				NavLinkList.classList.add('navLinks');

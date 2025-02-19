@@ -9,17 +9,17 @@ export default function decorate(block) {
             const heroImg = document.createElement('img');
             heroImg.classList.add('heroImg');
             heroImg.src = row.querySelector('img').src;
-            heroImg.setAttribute('width', '100%');
-            heroImg.setAttribute('height', 'auto');
+            heroImg.setAttribute('width', '1120px');
+            heroImg.setAttribute('height', '499px');
             heroImg.setAttribute('alt', 'heroImg');
             heroImg.setAttribute('loading', 'lazy');
             const playIcon = document.createElement('img');
             playIcon.classList.add('playIcon');
             playIcon.src = '../../icons/play_circle.png';
-            heroImg.setAttribute('width', '75px');
-            heroImg.setAttribute('height', '75px');
-            heroImg.setAttribute('alt', 'play icon');
-            heroImg.setAttribute('loading', 'lazy');
+            playIcon.setAttribute('width', '75px');
+            playIcon.setAttribute('height', '75px');
+            playIcon.setAttribute('alt', 'play icon');
+            playIcon.setAttribute('loading', 'lazy');
             heroSection.appendChild(heroImg);
             heroSection.appendChild(playIcon);
         } else {
@@ -31,8 +31,8 @@ export default function decorate(block) {
                     const cardImage = document.createElement('img');
                     cardImage.classList.add('cardImage');
                     cardImage.src = col.querySelector('img').src;
-                    cardImage.setAttribute('width', '100%');
-                    cardImage.setAttribute('height', 'auto');
+                    cardImage.setAttribute('width', '336');
+                    cardImage.setAttribute('height', '140');
                     cardImage.setAttribute('loading', 'lazy');
                     vCardItem.appendChild(cardImage);
                 }

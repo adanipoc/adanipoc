@@ -4,8 +4,8 @@ export default function decorate(block) {
     const image = document.createElement('img');
     image.classList.add('bannerImage');
     image.src = block.querySelector('img').src;
-    image.setAttribute('width', '100%');
-    image.setAttribute('height', 'auto');
+    image.setAttribute('width', '1280px');
+    image.setAttribute('height', '720px');
     image.setAttribute('alt', 'banner');
     banner.appendChild(image);
     block.innerHTML = '';

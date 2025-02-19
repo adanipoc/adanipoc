@@ -23,8 +23,8 @@ export default function decorate(block) {
                 if (c == 0) {
                     const img = document.createElement('img');
                     img.src = col.querySelector('img').src;
-                    img.setAttribute('width', 'auto');
-                    img.setAttribute('height', 'auto');
+                    img.setAttribute('width', '194');
+                    img.setAttribute('height', '164');
                     img.setAttribute('loading', 'lazy');
                     carouselItem.appendChild(img);
                 }
@@ -34,7 +34,7 @@ export default function decorate(block) {
                     heading.textContent = col.querySelector('p').textContent;
                     carouselItem.appendChild(heading);
                 }
-                carouselItem.style.width = '194px';
+                carouselItem.setAttribute('width', '194');
                 carouselItems.appendChild(carouselItem);
                 // carouselItems.style.widows = 
             });

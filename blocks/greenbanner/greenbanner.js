@@ -47,8 +47,8 @@ export default function decorate(block) {
 				const bgImg = document.createElement('img');
 				bgImg.classList.add('bgImg');
 				bgImg.src = row.querySelector('img').src;
-				bgImg.setAttribute('width','auto');
-				bgImg.setAttribute('height','auto');
+				bgImg.setAttribute('width','484px');
+				bgImg.setAttribute('height','274px');
 				bgImg.setAttribute('alt','background image');
 				img.appendChild(bgImg);
 			}
@@ -56,8 +56,8 @@ export default function decorate(block) {
 				const abImg = document.createElement('img');
 				abImg.classList.add('abImg');
 				abImg.src = row.querySelector('img').src;
-				abImg.setAttribute('width','auto');
-				abImg.setAttribute('height','auto');
+				abImg.setAttribute('width','226px');
+				abImg.setAttribute('height','243px');
 				abImg.setAttribute('alt','image');
 				img.appendChild(abImg);
 			}
@@ -87,9 +87,9 @@ export default function decorate(block) {
 				const bgImg = document.createElement('img');
 				bgImg.classList.add('bgImg');
 				bgImg.src = row.querySelector('img').src;
-				bgImg.setAttribute('width','auto');
+				bgImg.setAttribute('width','621px');
 				bgImg.setAttribute('alt','background image');
-				bgImg.setAttribute('height','auto');
+				bgImg.setAttribute('height','230px');
 				img.appendChild(bgImg);
 			}
 		});

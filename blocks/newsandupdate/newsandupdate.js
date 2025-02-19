@@ -23,6 +23,7 @@ export default function decorate(block) {
                 viewAll.classList.add('viewAll');
                 viewAll.textContent = col.querySelector('a').textContent;
                 viewAll.href = col.querySelector('a').href;
+                viewAll.setAttribute('title', 'google')
                 leftLayout.appendChild(viewAll);
             }
             if (c == 1) {

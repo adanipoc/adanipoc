@@ -34,6 +34,7 @@ export default function decorate(block) {
                     cardImage.setAttribute('width', '336');
                     cardImage.setAttribute('height', '140');
                     cardImage.setAttribute('loading', 'lazy');
+                    cardImage.setAttribute('alt', 'card image');
                     vCardItem.appendChild(cardImage);
                 }
                 if (c == 1) {

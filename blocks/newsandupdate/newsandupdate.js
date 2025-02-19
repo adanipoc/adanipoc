@@ -30,7 +30,7 @@ export default function decorate(block) {
                 const image = document.createElement('img');
                 image.setAttribute('alt', 'adani');
                 image.setAttribute('width', '186px');
-                image.setAttribute('height', 'auto');
+                image.setAttribute('height', '233px');
                 image.setAttribute('loading', 'lazy');
                 image.src = col.querySelector('img').src;
                 rightLayout.appendChild(image);

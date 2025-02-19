@@ -33,6 +33,7 @@ export default function decorate(block) {
 				itemBGiamge.setAttribute('width', '100%');
 				itemBGiamge.setAttribute('height', 'auto');
 				itemBGiamge.setAttribute('loading', 'lazy');
+				itemBGiamge.setAttribute('alt', 'banner image');
 				slide.appendChild(itemBGiamge);
 			}
 			// innerItem.replaceWith()

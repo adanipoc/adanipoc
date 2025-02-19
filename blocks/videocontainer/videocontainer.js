@@ -23,10 +23,10 @@ export default function decorate(block) {
 		if (index == 2) {
 			itemHeroImage.classList.add('heroImage');
 			itemHeroImage.src = item.querySelector('img').src;
-			itemHeroImage.setAttribute('width', '100%');
-			itemHeroImage.setAttribute('height', 'auto');
+			itemHeroImage.setAttribute('width', '322px');
+			itemHeroImage.setAttribute('height', '185px');
 			itemHeroImage.setAttribute('loading', 'lazy');
-			itemHeroImage.setAttribute('alt', 'hero image');
+			itemHeroImage.setAttribute('alt', 'covid- 19 update');
 			item.replaceWith(itemHeroImage);
 		}
 	});

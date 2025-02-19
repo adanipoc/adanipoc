@@ -19,6 +19,7 @@ export default function decorate(block) {
         const subHeading = document.createElement('p');
         img.setAttribute('width','46px');
         img.setAttribute('height','46px');
+        img.setAttribute('alt','image');
         title.classList.add('title');
         subHeading.classList.add('subHeading');
         cols.forEach((col, c) => {

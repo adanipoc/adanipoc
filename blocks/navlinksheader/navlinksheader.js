@@ -7,12 +7,16 @@ export default function decorate(block) {
 			const cols = [...row.children];
 			cols.forEach((item, index) => {
 				const newImage = document.createElement('img');
-				newImage.src = item.querySelector('img').src
+				newImage.src = item.querySelector('img').src;
+				newImage.setAttribute('width', '52px');
+				newImage.setAttribute('height', '52px');
 				if (index == 0) {
 					newImage.classList.add('menuIcon')
+					newImage.setAttribute('alt', 'menu Icon');
 				}
 				if (index == 1) {
 					newImage.classList.add('logoImage')
+					newImage.setAttribute('alt', 'logo Image');
 				}
 				sliderDiv.appendChild(newImage);
 			});
@@ -35,7 +39,10 @@ export default function decorate(block) {
 					const userLogin = document.createElement('div');
 					userLogin.classList.add('userLogin');
 					const newImage = document.createElement('img');
-					newImage.src = item.querySelector('img').src
+					newImage.src = item.querySelector('img').src;
+					newImage.setAttribute('alt', 'user login');
+					newImage.setAttribute('width', '52px');
+					newImage.setAttribute('height', '52px');
 					userLogin.appendChild(newImage);
 					item.replaceWith(userLogin);
 				}

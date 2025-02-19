@@ -9,6 +9,10 @@ export default function decorate(block) {
 				const cardImg = document.createElement('img');
 				cardImg.classList.add('cardImg');
 				cardImg.src = el.querySelector('img').src;
+				cardImg.setAttribute('width', '100%');
+				cardImg.setAttribute('height', 'auto')
+				cardImg.setAttribute('loading', 'lazy')
+				cardImg.setAttribute('alt', 'card image')
 				// el.replaceWith(cardImg);
 				cardItem.appendChild(cardImg)
 			}

@@ -18,6 +18,10 @@ export default function decorate(block) {
 				ulList.querySelectorAll('li').forEach(li => {
 					const icon = document.createElement('img');
 					icon.src = '../../icons/quick-actions.svg';
+					icon.setAttribute('width', '20px')
+					icon.setAttribute('height', '20px')
+					icon.setAttribute('alt', 'icon')
+					icon.setAttribute('loading', 'lazy')
 					li.appendChild(icon);
 					li.classList.add('listItem');
 				});

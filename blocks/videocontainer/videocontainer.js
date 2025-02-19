@@ -23,6 +23,10 @@ export default function decorate(block) {
 		if (index == 2) {
 			itemHeroImage.classList.add('heroImage');
 			itemHeroImage.src = item.querySelector('img').src;
+			itemHeroImage.setAttribute('width', '100%');
+			itemHeroImage.setAttribute('height', 'auto');
+			itemHeroImage.setAttribute('loading', 'lazy');
+			itemHeroImage.setAttribute('alt', 'hero image');
 			item.replaceWith(itemHeroImage);
 		}
 	});

@@ -30,6 +30,10 @@ export default function decorate(block) {
 				socialIcons.classList.add('icons');
 				iconsWrapper.classList.add('iconsWrapper');
 				socialIcons.src = icon.querySelector('img').src;
+				socialIcons.setAttribute('width', '32px');
+				socialIcons.setAttribute('height', '32px');
+				socialIcons.setAttribute('loading', 'lazy');
+				socialIcons.setAttribute('alt', 'icons');
 				iconsWrapper.appendChild(socialIcons);
 				footerCol.appendChild(iconsWrapper);
 			});

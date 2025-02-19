@@ -49,6 +49,7 @@ export default function decorate(block) {
 				bgImg.src = row.querySelector('img').src;
 				bgImg.setAttribute('width','auto');
 				bgImg.setAttribute('height','auto');
+				bgImg.setAttribute('alt','background image');
 				img.appendChild(bgImg);
 			}
 			if(r==4){
@@ -57,6 +58,7 @@ export default function decorate(block) {
 				abImg.src = row.querySelector('img').src;
 				abImg.setAttribute('width','auto');
 				abImg.setAttribute('height','auto');
+				abImg.setAttribute('alt','image');
 				img.appendChild(abImg);
 			}
 		});
@@ -86,6 +88,7 @@ export default function decorate(block) {
 				bgImg.classList.add('bgImg');
 				bgImg.src = row.querySelector('img').src;
 				bgImg.setAttribute('width','auto');
+				bgImg.setAttribute('alt','background image');
 				bgImg.setAttribute('height','auto');
 				img.appendChild(bgImg);
 			}

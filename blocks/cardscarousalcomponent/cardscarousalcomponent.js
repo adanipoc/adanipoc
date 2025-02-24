@@ -26,6 +26,7 @@ export default function decorate(block) {
                     img.setAttribute('width', '194');
                     img.setAttribute('height', '164');
                     img.setAttribute('loading', 'lazy');
+                    img.setAttribute('alt', 'card image ' + c);
                     carouselItem.appendChild(img);
                 }
                 if (c == 1) {

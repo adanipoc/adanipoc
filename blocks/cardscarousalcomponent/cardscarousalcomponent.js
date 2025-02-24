@@ -54,6 +54,7 @@ export default function decorate(block) {
     // Create Left Button
     const leftBtn = document.createElement('button');
     leftBtn.classList.add('prev', 'slider-arrow');
+    leftBtn.setAttribute('aria-label', 'prev');
     // leftBtn.innerHTML = `<img src="../../icons/slide-arrow.svg" width="20px" height="20px" alt="prev" />`;
     leftBtn.addEventListener('click', () => {
         if (currentIndex > 0) {
@@ -81,6 +82,7 @@ export default function decorate(block) {
     // Create Right Button
     const rightBtn = document.createElement('button');
     rightBtn.classList.add('next', 'slider-arrow');
+    leftBtn.setAttribute('aria-label', 'next');
     // rightBtn.innerHTML = `<img src="../../icons/slide-arrow.svg" width="20px" height="20px" alt="prev" />`;
     rightBtn.addEventListener('click', () => {
         if (currentIndex < totalSlides - slidesToShow) {

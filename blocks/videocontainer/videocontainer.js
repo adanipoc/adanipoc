@@ -5,6 +5,7 @@ export default function decorate(block) {
 	const subHeadingElement = document.createElement('p');
 	const headingEle = document.createElement('p');
 	const itemHeroImage = document.createElement('img');
+	const readMore = document.createElement('a');
 	rows.forEach((item, index) => {
 		if (index == 0) {
 			headingEle.classList.add('heading');
@@ -28,6 +29,13 @@ export default function decorate(block) {
 			itemHeroImage.setAttribute('loading', 'lazy');
 			itemHeroImage.setAttribute('alt', 'covid- 19 update');
 			item.replaceWith(itemHeroImage);
+		}
+		if (index == 3) {
+			readMore.classList.add('readMore');
+			readMore.href = item.querySelector('a').href;
+			readMore.textContent = item.querySelector('a').textContent;
+			videoMain.appendChild(readMore)
+			item.remove()
 		}
 	});
 

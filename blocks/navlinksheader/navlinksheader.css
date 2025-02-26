@@ -38,11 +38,14 @@
 			margin: 0;
 			padding: 0;
 			li.navItem {
-				font-size: 14px;
-				line-height: 18px;
+                font-size: 14px;
+                line-height: 18px;
+                font-weight: normal;
+				color: #000;
 			}
 		}
 		.userLogin {
+			display: flex;
 			img.userLog {
 				width: 52px;
 				height: auto;

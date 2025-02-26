@@ -1,5 +1,5 @@
 .brochuresblock-wrapper {
-	background-color: #E3F2FF;
+	background: transparent linear-gradient(69deg, #E3F2FF 0%, #FDEFFC 100%) 0% 0% no-repeat padding-box;
 	[data-block-name="brochuresblock"] {
 		max-width: 1120px;
 		margin: 0 auto;

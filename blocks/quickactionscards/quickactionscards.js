@@ -1,6 +1,14 @@
 export default function decorate(block) {
 	const rows = [...block.children];
+	const itemWrapperMain = document.createElement('div');
+	itemWrapperMain.classList.add('itemWrapperMain');
 	rows.forEach((item, index) => {
+		if (index == 0) {
+			const quickLinkHeading = document.createElement('p');
+			quickLinkHeading.classList.add('quickLinkHeading');
+			quickLinkHeading.textContent = item.textContent;
+			item.replaceWith(quickLinkHeading);
+		}
 		const quickLinkItem = document.createElement('div');
 		quickLinkItem.classList.add('itemWrapper');
 		const children = [...item.children];
@@ -29,6 +37,9 @@ export default function decorate(block) {
 				quickLinkItem.appendChild(ulList)
 			}
 		});
-		item.replaceWith(quickLinkItem);
+		item.replaceWith(itemWrapperMain);
+		if(index != 0){
+			itemWrapperMain.appendChild(quickLinkItem);
+		}
 	})
 }

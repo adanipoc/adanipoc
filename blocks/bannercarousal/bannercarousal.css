@@ -15,7 +15,7 @@
 		width: 100%;
 		flex-basis: 100%;
 		height: 376px;
-		background-color: #524086;
+		background: transparent linear-gradient(68deg, #234988 0%, #524086 100%) 0% 0% no-repeat padding-box;
 		display: flex;
 		align-items: flex-start;
 		justify-content: flex-end;
@@ -33,8 +33,6 @@
 			align-items: flex-start;
 			justify-content: center;
 			padding: 0 0 0 100px;
-			background-color: #524086;
-			clip-path: polygon(0 0, 90% 0, 75% 100%, 0% 100%);
 			gap: 20px;
 			left: 0;
 			.heading {
@@ -43,22 +41,33 @@
 				margin: 0;
 				font-weight: bold;
 				color: #fff;
+				max-width: 330px;
 			}
 			.subHeading {
 				font-size: 20px;
 				line-height: 24px;
 				color: #f8f8f8;
 				margin: 0;
+				font-weight: 200;
 			}
 			.itemCTA {
 				background-color: #fff;
 				color: #3072AF;
 				border: none;
-				border-radius: 16px;
-				padding: 10px 20px;
+				border-radius: 10px;
+				padding: 14px 22px;
 				font-size: 18px;
 				line-height: 20px;
 				font-weight: bold;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 13px;
+				text-decoration: none;
+				img {
+					width: 20px;
+					height: 20px;
+				}
 			}
 		}
 	}

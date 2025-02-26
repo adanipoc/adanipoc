@@ -24,6 +24,15 @@
 			margin: 0px;
 			font-weight: normal;
 		}
+		.readMore {
+			font-size: 16px;
+			line-height: 20px;
+			font-weight: bold;
+			color: #3072AF;
+			&:hover {
+				text-decoration: none;
+			}
+		}
 	}
 	.heroImage {
 		grid-column: 2/3;

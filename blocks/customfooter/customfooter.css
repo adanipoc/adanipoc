@@ -38,7 +38,7 @@
 		&[data-bottom-footer="true"] {
 			grid-column: 1 / 6;
 			display: flex;
-			background-color: #583C83;
+			background: transparent linear-gradient(267deg, #583C83 0%, #2E629F 100%) 0% 0% no-repeat padding-box;
 			color: #fff;
 			padding: 20px 0;
 			margin: 20px 0 0 0;
@@ -49,14 +49,16 @@
 				position: absolute;
 				width: 100%;
 				height: 100%;
-				background-color: #583C83;
+				background: transparent linear-gradient(267deg, #583C83 0%, #2E629F 100%) 0% 0% no-repeat padding-box;
 				bottom: 0;
 			}
 			&::before {
 				left: -100%;
+                rotate: 180deg;
 			}
 			&::after {
 				right: -100%;
+				rotate: -180deg;
 			}
 			.bottomFooter {
 				display: flex;
@@ -68,7 +70,7 @@
 					line-height: 20px;
 					margin: 0;
 					white-space: nowrap;
-					&:nth-child(1){
+					&:nth-child(1) {
 						flex-basis: 100%;
 					}
 				}

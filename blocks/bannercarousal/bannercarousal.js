@@ -26,6 +26,13 @@ export default function decorate(block) {
 			if (i == 2) {
 				itemCTA.textContent = innerItem.querySelector('a').textContent
 				itemCTA.href = innerItem.querySelector('a').href;
+				const imgTag = document.createElement('img');
+				imgTag.src = '../../icons/buy-now.png';
+				imgTag.setAttribute('width', '20px');
+				imgTag.setAttribute('height', '20px');
+				imgTag.setAttribute('alt', 'buy now');
+				imgTag.setAttribute('loading', 'lazy');
+				itemCTA.appendChild(imgTag)
 				textWrapper.appendChild(itemCTA);
 			}
 			if (i == 3) {

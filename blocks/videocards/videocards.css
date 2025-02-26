@@ -56,6 +56,9 @@
 			position: relative;
 			cursor: pointer;
 			&.active {
+				border: 1px solid #3072AF;
+				box-sizing: border-box;
+				background-color: #EAF5FF;
 				&::after {
 					content: '';
 					position: absolute;

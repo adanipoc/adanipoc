@@ -29,8 +29,9 @@
 			line-height: 20px;
 			font-weight: bold;
 			color: #3072AF;
+			text-decoration: none;
 			&:hover {
-				text-decoration: none;
+				text-decoration: underline;
 			}
 		}
 	}

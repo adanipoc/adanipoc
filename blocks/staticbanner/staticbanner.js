@@ -3,12 +3,14 @@ export default function decorate(block) {
     banner.classList.add('banner');
     const video = document.createElement('video');
     video.classList.add('bannerImage');
-    console.log(video);
-    //video.src = block.querySelector('p').textContent;
     video.setAttribute('preload', 'auto');
     video.setAttribute('loop', 'true');
     video.setAttribute('autoplay', 'true');
-    video.setAttribute('muted');
+    video.setAttribute('muted','true');
+    const source = document.createElement('source');
+    source.src = block.querySelector('p').textContent;
+    source.setAttribute('type','video/mp4')
+    video.appendChild(source);
     banner.appendChild(video);
     block.innerHTML = '';
     block.appendChild(banner);

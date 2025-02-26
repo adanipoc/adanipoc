@@ -1,13 +1,16 @@
 export default function decorate(block) {
     const banner = document.createElement('div');
     banner.classList.add('banner');
-    const image = document.createElement('img');
-    image.classList.add('bannerImage');
-    image.src = block.querySelector('img').src;
-    image.setAttribute('width', '1280px');
-    image.setAttribute('height', '720px');
-    image.setAttribute('alt', 'banner');
-    banner.appendChild(image);
+    const video = document.createElement('video');
+    video.classList.add('bannerImage');
+    //video.src = block.querySelector('p').textContent;
+    video.setAttribute('preload', 'auto');
+    video.setAttribute('loop', 'true');
+    video.setAttribute('autoplay', 'true');
+    video.setAttribute('muted');
+    banner.appendChild(video);
     block.innerHTML = '';
     block.appendChild(banner);
+
+    
 }

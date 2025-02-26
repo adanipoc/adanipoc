@@ -1,4 +1,4 @@
-.newsandupdate-wrapper{
+.newsandupdate-wrapper {
 	background: transparent linear-gradient(72deg, #E3F2FF 0%, #FDEFFC 100%) 0% 0% no-repeat padding-box;
 }
 
@@ -26,6 +26,7 @@
 			max-width: 384px;
 			margin: 0 0 16px 0;
 			color: #000000;
+			font-weight: 400;
 		}
 		a.viewAll {
 			font-weight: bold;
@@ -94,7 +95,7 @@
 		}
 		img {
 			align-self: flex-end;
-            width: 186px;
+			width: 186px;
 		}
 	}
 }

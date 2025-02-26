@@ -18,7 +18,6 @@ export default function decorate(block) {
             const carouselItem = document.createElement('div');
             carouselItem.classList.add('carouselItem');
             const cols = [...row.children];
-            console.log(rows.length - 1);
             cols.forEach((col, c) => {
                 if (c == 0) {
                     const img = document.createElement('img');

@@ -5,7 +5,7 @@ export default function decorate(block) {
     heroSection.classList.add('heroSection');
     vcardWrapper.classList.add('vcardWrapper');
 
-    let heroImg = null; // This will hold the reference to the hero image element
+    let heroImg = null; 
 
     rows.forEach((row, r) => {
         if (r == 0) {
@@ -73,6 +73,11 @@ export default function decorate(block) {
                     heroImg.src = cardImageSrc;
                 }
             });
+
+            // Add the "active" class to the first vCardItem (if it's the first one)
+            if (r === 1) {
+                vCardItem.classList.add('active'); // Add 'active' class to the first vCardItem
+            }
 
             vcardWrapper.appendChild(vCardItem);
         }

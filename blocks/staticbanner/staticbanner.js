@@ -3,6 +3,7 @@ export default function decorate(block) {
     banner.classList.add('banner');
     const video = document.createElement('video');
     video.classList.add('bannerImage');
+    console.log(video);
     //video.src = block.querySelector('p').textContent;
     video.setAttribute('preload', 'auto');
     video.setAttribute('loop', 'true');

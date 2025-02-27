@@ -96,6 +96,13 @@
 				line-height: 20px;
 				margin: 0;
 				font-weight: 400;
+				a{
+					font-weight: bold;
+					font-size: 16px;
+					line-height: 20px;
+					margin: 0;
+					color: #3072AF;
+				}
 			}
 		}
 		.iconsWrapper {

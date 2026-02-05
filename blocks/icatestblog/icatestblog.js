@@ -5,6 +5,10 @@ export default function decorate(block) {
     const blogContainer = document.createElement('div');
     blogContainer.classList.add('blog-container');
 
+    // Create content wrapper for tag, title, and date
+    const headerWrapper = document.createElement('div');
+    headerWrapper.classList.add('blog-header');
+
     rows.forEach((row, index) => {
         const col = row.querySelector('div');
         const content = col?.textContent?.trim();
@@ -14,7 +18,7 @@ export default function decorate(block) {
             const blogTag = document.createElement('span');
             blogTag.classList.add('blog-tag');
             blogTag.textContent = content;
-            blogContainer.appendChild(blogTag);
+            headerWrapper.appendChild(blogTag);
         }
 
         if (index === 1 && content) {
@@ -22,7 +26,7 @@ export default function decorate(block) {
             const blogTitle = document.createElement('h1');
             blogTitle.classList.add('blog-title');
             blogTitle.textContent = content;
-            blogContainer.appendChild(blogTitle);
+            headerWrapper.appendChild(blogTitle);
         }
 
         if (index === 2 && content) {
@@ -30,37 +34,45 @@ export default function decorate(block) {
             const publishDate = document.createElement('p');
             publishDate.classList.add('publish-date');
             publishDate.textContent = content;
-            blogContainer.appendChild(publishDate);
+            headerWrapper.appendChild(publishDate);
         }
 
         if (index === 3) {
             // Banner Image
-            const imgElement = col?.querySelector('img');
-            if (imgElement) {
-                const bannerWrapper = document.createElement('div');
-                bannerWrapper.classList.add('banner-wrapper');
+            const picture = col.querySelector('picture');
+            const img = col.querySelector('img');
 
-                const bannerImg = document.createElement('img');
-                bannerImg.classList.add('blog-banner');
-                bannerImg.src = imgElement.src;
-                bannerImg.alt = imgElement.alt || 'Blog Banner';
-                bannerImg.setAttribute('loading', 'eager');
-                bannerImg.setAttribute('width', '1200');
-                bannerImg.setAttribute('height', '600');
+            const bannerWrapper = document.createElement('div');
+            bannerWrapper.classList.add('banner-wrapper');
 
-                bannerWrapper.appendChild(bannerImg);
+            if (picture) {
+                const pictureClone = picture.cloneNode(true);
+                const imgInPicture = pictureClone.querySelector('img');
+                if (imgInPicture) {
+                    imgInPicture.classList.add('blog-banner');
+                }
+                bannerWrapper.appendChild(pictureClone);
+            } else if (img) {
+                const imgClone = img.cloneNode(true);
+                imgClone.classList.add('blog-banner');
+                bannerWrapper.appendChild(imgClone);
+            }
+
+            if (bannerWrapper.children.length > 0) {
+                blogContainer.appendChild(headerWrapper);
                 blogContainer.appendChild(bannerWrapper);
             }
         }
 
-        if (index === 4 && content) {
+        if (index === 4) {
             // Rich Text Content
             const richTextWrapper = document.createElement('div');
             richTextWrapper.classList.add('rich-text-content');
 
-            // Preserve any HTML content from the cell
-            const contentDiv = col.cloneNode(true);
-            richTextWrapper.innerHTML = contentDiv.innerHTML;
+            // Move all child elements
+            while (col.firstChild) {
+                richTextWrapper.appendChild(col.firstChild);
+            }
 
             blogContainer.appendChild(richTextWrapper);
         }

@@ -74,6 +74,15 @@
 					rotate: 180deg;
 				}
 			}
+			&:nth-child(4)::after{
+				content: none;
+			}
+			&:nth-child(5)::after{
+				content: none;
+			}
+			&:nth-child(6)::after{
+				content: none;
+			}
 			img.cardImage {
 				height: auto;
 				margin: 0 0 20px 0;

@@ -1,4 +1,4 @@
-.faq-list {
+.faq-accordion {
 display: flex;
 flex-direction: column;
 gap: 12px;
@@ -8,26 +8,51 @@ border-radius: 14px;
 }
 .faq-item {
 background: #FFFFFF;
-padding: 14px 18px;
 border-radius: 10px;
+box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+overflow: hidden;
+}
+.faq-question {
+padding: 14px 18px;
 font-size: 16px;
 color: #333;
-text-decoration: none;
-box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-transition: all 0.2s ease;
+cursor: pointer;
+position: relative;
 }
-.faq-item:hover {
-background: #F0F5FF;
-box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+.faq-question::after {
+content: '+';
+position: absolute;
+right: 18px;
+top: 50%;
+transform: translateY(-50%);
+font-size: 20px;
+color: #666;
+transition: transform 0.2s;
 }
-.faq-item.see-more {
+.faq-question.active::after {
+content: '-';
+}
+.faq-answer {
+max-height: 0;
+overflow: hidden;
+padding: 0 18px;
+color: #555;
+font-size: 15px;
+line-height: 20px;
+transition: max-height 0.3s ease;
+}
+.faq-answer.open {
+padding: 12px 18px 16px 18px;
+max-height: 300px;
+}
+.see-more {
+display: block;
+padding: 14px;
 text-align: center;
-background: transparent;
 color: #3072AF;
 font-weight: 600;
-box-shadow: none;
+text-decoration: none;
 }
-.faq-item.see-more:hover {
+.see-more:hover {
 text-decoration: underline;
-background: transparent;
 }

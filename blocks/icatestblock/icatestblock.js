@@ -1,42 +1,37 @@
 export default function decorate(block) {
   const rows = [...block.querySelectorAll('tr')];
 
-  // Remove heading row if present
-  const headingRow = rows[0];
-  const faqRows = rows.slice(1, rows.length - 1);
+  if (rows.length < 3) return; // must have at least 3 rows
+
+  // Last row is the toggle row
   const toggleRow = rows[rows.length - 1];
+  const toggleCell = toggleRow.querySelector('td');
+  const toggleBtn = document.createElement('button');
+  toggleBtn.className = 'faq-toggle';
+  toggleBtn.textContent = 'See more';
+  toggleCell.innerHTML = '';
+  toggleCell.appendChild(toggleBtn);
 
-  // Convert FAQ cells
+  // FAQ rows: skip row 0 (title) and last row (button)
+  const faqRows = rows.slice(1, rows.length - 1);
+
   faqRows.forEach((row, index) => {
-    row.classList.add('faq-row');
-
     const cell = row.querySelector('td');
     cell.classList.add('faq-question');
 
-    // Hide rows after second
+    // hide after first 2
     if (index > 1) {
       row.classList.add('faq-hidden');
     }
   });
 
-  // Convert last row into a button
-  const toggleCell = toggleRow.querySelector('td');
-  const button = document.createElement('button');
-  button.className = 'faq-toggle-btn';
-  button.textContent = 'See more';
-  toggleCell.innerHTML = '';
-  toggleCell.appendChild(button);
-
-  // Toggle functionality
-  button.addEventListener('click', () => {
-    const hiddenFaqs = block.querySelectorAll('.faq-hidden');
-
-    const shouldShow = hiddenFaqs[0].style.display !== 'table-row';
-
-    hiddenFaqs.forEach(r => {
-      r.style.display = shouldShow ? 'table-row' : 'none';
+  toggleBtn.addEventListener('click', () => {
+    const isExpanded = toggleBtn.textContent === 'See less';
+    faqRows.forEach((row, index) => {
+      if (index > 1) {
+        row.style.display = isExpanded ? 'none' : 'table-row';
+      }
     });
-
-    button.textContent = shouldShow ? 'See less' : 'See more';
+    toggleBtn.textContent = isExpanded ? 'See more' : 'See less';
   });
 }

@@ -1,27 +1,22 @@
-.faq-block table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0 8px;
-  font-family: Arial, sans-serif;
-}
-
-.faq-question {
+.faq-block .faq-question {
   background: #f5f5f5;
   padding: 14px;
   border-radius: 6px;
   cursor: pointer;
+  margin-bottom: 8px;
 }
 
-.faq-hidden {
+.faq-block .faq-hidden {
   display: none;
 }
 
-.faq-toggle-btn {
-  padding: 10px 16px;
+.faq-block .faq-toggle {
+  padding: 10px;
   background: #005fcc;
-  color: #fff;
+  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  text-align: center;
+  margin-top: 12px;
+  width: 120px;
 }

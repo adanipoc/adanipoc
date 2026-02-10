@@ -1,37 +1,57 @@
 export default function decorate(block) {
-  const rows = [...block.querySelectorAll('tr')];
+  // Collect each authored row (each row is a div; each col is a child div)
+  const rows = [...block.children].filter((row) => row.children && row.children.length);
 
-  if (rows.length < 3) return; // must have at least 3 rows
+  // Build FAQ items as <details><summary>Q</summary><div>A</div></details>
+  const items = rows.map((row) => {
+    const [qCol, aCol] = row.children;
 
-  // Last row is the toggle row
-  const toggleRow = rows[rows.length - 1];
-  const toggleCell = toggleRow.querySelector('td');
-  const toggleBtn = document.createElement('button');
-  toggleBtn.className = 'faq-toggle';
-  toggleBtn.textContent = 'See more';
-  toggleCell.innerHTML = '';
-  toggleCell.appendChild(toggleBtn);
+    const questionText = (qCol?.textContent || '').trim();
 
-  // FAQ rows: skip row 0 (title) and last row (button)
-  const faqRows = rows.slice(1, rows.length - 1);
+    const details = document.createElement('details');
+    details.className = 'faq-item';
 
-  faqRows.forEach((row, index) => {
-    const cell = row.querySelector('td');
-    cell.classList.add('faq-question');
+    const summary = document.createElement('summary');
+    summary.className = 'faq-question';
+    summary.textContent = questionText;
 
-    // hide after first 2
-    if (index > 1) {
-      row.classList.add('faq-hidden');
+    const answer = document.createElement('div');
+    answer.className = 'faq-answer';
+
+    // Move all authored nodes from the answer column into the answer container
+    while (aCol && aCol.firstChild) {
+      answer.appendChild(aCol.firstChild);
     }
+
+    details.append(summary, answer);
+    return details;
   });
 
-  toggleBtn.addEventListener('click', () => {
-    const isExpanded = toggleBtn.textContent === 'See less';
-    faqRows.forEach((row, index) => {
-      if (index > 1) {
-        row.style.display = isExpanded ? 'none' : 'table-row';
-      }
-    });
-    toggleBtn.textContent = isExpanded ? 'See more' : 'See less';
+  // Clear the original block content
+  block.textContent = '';
+
+  // Show only first 2 initially; hide the rest
+  const initialCount = 2;
+  items.forEach((item, idx) => {
+    if (idx >= initialCount) {
+      item.classList.add('collapsed');
+    }
+    block.appendChild(item);
   });
+
+  // Add "See more" button if needed
+  if (items.length > initialCount) {
+    const seeMore = document.createElement('button');
+    seeMore.type = 'button';
+    seeMore.className = 'faq-see-more';
+    seeMore.setAttribute('aria-expanded', 'false');
+    seeMore.textContent = 'See more';
+
+    seeMore.addEventListener('click', () => {
+      block.querySelectorAll('.faq-item.collapsed').forEach((el) => el.classList.remove('collapsed'));
+      seeMore.remove();
+    });
+
+    block.appendChild(seeMore);
+  }
 }

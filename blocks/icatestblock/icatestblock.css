@@ -1,22 +1,63 @@
-.faq-block .faq-question {
-  background: #f5f5f5;
-  padding: 14px;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-bottom: 8px;
+/* Container */
+.faq {
+  /* optional container styles */
 }
 
-.faq-block .faq-hidden {
+/* Each FAQ item */
+.faq .faq-item {
+  border-bottom: 1px solid var(--color-border, #e6e6e6);
+  padding: 0.5rem 0;
+}
+
+/* Hide items beyond the first two until "See more" is clicked */
+.faq .faq-item.collapsed {
   display: none;
 }
 
-.faq-block .faq-toggle {
-  padding: 10px;
-  background: #005fcc;
-  color: white;
-  border: none;
+/* Summary (question) styling */
+.faq .faq-question {
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  outline: none;
+  padding: 0.5rem 0;
+}
+
+/* Hide the default triangle marker in some browsers */
+.faq .faq-question::-webkit-details-marker {
+  display: none;
+}
+
+/* Optional custom chevron */
+.faq .faq-question::after {
+  content: '▾';
+  float: right;
+  transition: transform 0.2s ease;
+  color: currentColor;
+}
+
+.faq .faq-item[open] .faq-question::after {
+  transform: rotate(180deg);
+}
+
+/* Answer content */
+.faq .faq-answer {
+  margin: 0.5rem 0 0 0;
+  color: var(--color-text, inherit);
+}
+
+/* "See more" button */
+.faq .faq-see-more {
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-border, #e6e6e6);
+  background: var(--color-background, #fff);
+  color: var(--color-text, inherit);
   border-radius: 4px;
   cursor: pointer;
-  margin-top: 12px;
-  width: 120px;
+}
+
+.faq .faq-see-more:hover,
+.faq .faq-see-more:focus {
+  border-color: var(--color-text, #333);
 }

@@ -14,7 +14,8 @@
 .faq-accordion-item {
   margin-bottom: 0;
   border-bottom: 1px solid #e0e0e0;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease;
+  opacity: 1;
 }
 
 .faq-accordion-item:first-child {
@@ -23,6 +24,7 @@
 
 .faq-accordion-item.hidden {
   display: none;
+  opacity: 0;
 }
 
 .faq-question {
@@ -36,7 +38,7 @@
   cursor: pointer;
   position: relative;
   color: #000;
-  transition: all 0.2s ease;
+  transition: opacity 0.2s ease;
   -webkit-tap-highlight-color: transparent;
   display: block;
 }
@@ -70,8 +72,9 @@
   transform: translateY(-50%);
   font-size: 24px;
   font-weight: 300;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
   color: #000;
+  line-height: 1;
 }
 
 .faq-accordion-item.active .faq-question {
@@ -81,16 +84,28 @@
 .faq-accordion-item.active .faq-question::after {
   content: '−';
   color: #000;
+  transform: translateY(-50%) rotate(180deg);
 }
 
 .faq-answer {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease, padding 0.3s ease;
-  padding: 0 15px 0 0;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease;
+  padding: 0 40px 0 0;
   color: #666;
   font-size: 14px;
   line-height: 1.6;
+  opacity: 0;
+}
+
+.faq-answer p {
+  margin: 0 0 10px 0;
+}
+
+.faq-answer p:last-child {
+  margin-bottom: 0;
 }
 
 .faq-answer a {
@@ -103,8 +118,9 @@
 }
 
 .faq-accordion-item.active .faq-answer {
-  max-height: 500px;
-  padding: 0 15px 20px 0;
+  max-height: 1000px;
+  padding: 0 40px 20px 0;
+  opacity: 1;
 }
 
 .faq-see-more {
@@ -116,7 +132,7 @@
   cursor: pointer;
   padding: 20px 0;
   text-transform: lowercase;
-  transition: all 0.2s ease;
+  transition: opacity 0.2s ease;
   text-decoration: underline;
   -webkit-tap-highlight-color: transparent;
   display: block;

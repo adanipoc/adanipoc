@@ -2,6 +2,14 @@ export default function decorate(block) {
   const rows = [...block.children];
   const initialVisibleCount = 2;
 
+  // Get "see more" label from last row
+  let seeMoreLabel = 'see more';
+  const lastRow = rows[rows.length - 1];
+  if (lastRow && lastRow.children.length === 1) {
+    seeMoreLabel = lastRow.textContent.trim();
+    rows.pop(); // Remove label row from FAQ items
+  }
+
   // Create accordion container
   const accordionContainer = document.createElement('div');
   accordionContainer.className = 'faq-accordion-container';
@@ -45,7 +53,7 @@ export default function decorate(block) {
   if (rows.length > initialVisibleCount) {
     const seeMoreButton = document.createElement('button');
     seeMoreButton.className = 'faq-see-more';
-    seeMoreButton.textContent = 'see more';
+    seeMoreButton.textContent = seeMoreLabel;
 
     seeMoreButton.addEventListener('click', () => {
       const hiddenItems = accordionContainer.querySelectorAll('.faq-accordion-item.hidden');

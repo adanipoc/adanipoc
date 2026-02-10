@@ -1,14 +1,20 @@
 export default function decorate(block) {
   const rows = [...block.children];
+
+  // First row contains the title "frequently asked questions"
+  const titleRow = rows.shift();
+  const title = titleRow.textContent.trim();
+
+  // Last row contains the "see more" label
+  const seeMoreRow = rows.pop();
+  const seeMoreLabel = seeMoreRow.textContent.trim();
+
   const initialVisibleCount = 2;
 
-  // Get "see more" label from last row
-  let seeMoreLabel = 'see more';
-  const lastRow = rows[rows.length - 1];
-  if (lastRow && lastRow.children.length === 1) {
-    seeMoreLabel = lastRow.textContent.trim();
-    rows.pop(); // Remove label row from FAQ items
-  }
+  // Create title
+  const titleElement = document.createElement('h2');
+  titleElement.className = 'faq-title';
+  titleElement.textContent = title;
 
   // Create accordion container
   const accordionContainer = document.createElement('div');
@@ -16,7 +22,7 @@ export default function decorate(block) {
 
   // Process each FAQ item
   rows.forEach((row, index) => {
-    const [question, answer] = [...row.children];
+    const [question] = [...row.children];
 
     // Create accordion item
     const accordionItem = document.createElement('div');
@@ -32,10 +38,9 @@ export default function decorate(block) {
     questionButton.textContent = question.textContent;
     questionButton.setAttribute('aria-expanded', 'false');
 
-    // Create answer container
+    // Create answer container (empty initially, can be populated if needed)
     const answerDiv = document.createElement('div');
     answerDiv.className = 'faq-answer';
-    answerDiv.innerHTML = answer.innerHTML;
 
     // Toggle functionality
     questionButton.addEventListener('click', () => {
@@ -50,21 +55,23 @@ export default function decorate(block) {
   });
 
   // Create "See More" button if there are hidden items
-  if (rows.length > initialVisibleCount) {
-    const seeMoreButton = document.createElement('button');
-    seeMoreButton.className = 'faq-see-more';
-    seeMoreButton.textContent = seeMoreLabel;
+  const seeMoreButton = document.createElement('button');
+  seeMoreButton.className = 'faq-see-more';
+  seeMoreButton.textContent = seeMoreLabel;
 
+  if (rows.length > initialVisibleCount) {
     seeMoreButton.addEventListener('click', () => {
       const hiddenItems = accordionContainer.querySelectorAll('.faq-accordion-item.hidden');
       hiddenItems.forEach(item => item.classList.remove('hidden'));
       seeMoreButton.style.display = 'none';
     });
-
-    accordionContainer.appendChild(seeMoreButton);
+  } else {
+    seeMoreButton.style.display = 'none';
   }
 
   // Clear and append
   block.textContent = '';
+  block.appendChild(titleElement);
   block.appendChild(accordionContainer);
+  block.appendChild(seeMoreButton);
 }

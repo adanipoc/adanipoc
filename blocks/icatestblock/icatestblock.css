@@ -1,13 +1,24 @@
+.faq-title {
+  font-size: 24px;
+  font-weight: 400;
+  margin: 0 0 30px 0;
+  color: #000;
+  text-transform: lowercase;
+}
+
 .faq-accordion-container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
 }
 
 .faq-accordion-item {
-  margin-bottom: 10px;
+  margin-bottom: 0;
   border-bottom: 1px solid #e0e0e0;
   transition: all 0.3s ease;
+}
+
+.faq-accordion-item:first-child {
+  border-top: 1px solid #e0e0e0;
 }
 
 .faq-accordion-item.hidden {
@@ -19,7 +30,7 @@
   background: none;
   border: none;
   text-align: left;
-  padding: 15px 40px 15px 0;
+  padding: 18px 40px 18px 0;
   font-size: 16px;
   font-weight: 400;
   cursor: pointer;
@@ -27,11 +38,13 @@
   color: #000;
   transition: all 0.2s ease;
   -webkit-tap-highlight-color: transparent;
+  display: block;
 }
 
 .faq-question:hover {
   background-color: transparent;
   color: #000;
+  opacity: 0.7;
 }
 
 .faq-question:focus {
@@ -74,7 +87,7 @@
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease, padding 0.3s ease;
-  padding: 0 15px;
+  padding: 0 15px 0 0;
   color: #666;
   font-size: 14px;
   line-height: 1.6;
@@ -91,21 +104,23 @@
 
 .faq-accordion-item.active .faq-answer {
   max-height: 500px;
-  padding: 0 15px 20px 15px;
+  padding: 0 15px 20px 0;
 }
 
 .faq-see-more {
   background: none;
   border: none;
   color: #000;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   cursor: pointer;
-  padding: 15px 0;
+  padding: 20px 0;
   text-transform: lowercase;
   transition: all 0.2s ease;
   text-decoration: underline;
   -webkit-tap-highlight-color: transparent;
+  display: block;
+  margin-top: 10px;
 }
 
 .faq-see-more:hover {

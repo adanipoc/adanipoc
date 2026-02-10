@@ -1,57 +1,62 @@
 export default function decorate(block) {
-  // Collect each authored row (each row is a div; each col is a child div)
-  const rows = [...block.children].filter((row) => row.children && row.children.length);
+  const rows = [...block.children];
+  const initialVisibleCount = 2;
 
-  // Build FAQ items as <details><summary>Q</summary><div>A</div></details>
-  const items = rows.map((row) => {
-    const [qCol, aCol] = row.children;
+  // Create accordion container
+  const accordionContainer = document.createElement('div');
+  accordionContainer.className = 'faq-accordion-container';
 
-    const questionText = (qCol?.textContent || '').trim();
+  // Process each FAQ item
+  rows.forEach((row, index) => {
+    const [question, answer] = [...row.children];
 
-    const details = document.createElement('details');
-    details.className = 'faq-item';
+    // Create accordion item
+    const accordionItem = document.createElement('div');
+    accordionItem.className = 'faq-accordion-item';
 
-    const summary = document.createElement('summary');
-    summary.className = 'faq-question';
-    summary.textContent = questionText;
-
-    const answer = document.createElement('div');
-    answer.className = 'faq-answer';
-
-    // Move all authored nodes from the answer column into the answer container
-    while (aCol && aCol.firstChild) {
-      answer.appendChild(aCol.firstChild);
+    if (index >= initialVisibleCount) {
+      accordionItem.classList.add('hidden');
     }
 
-    details.append(summary, answer);
-    return details;
-  });
+    // Create question button
+    const questionButton = document.createElement('button');
+    questionButton.className = 'faq-question';
+    questionButton.textContent = question.textContent;
+    questionButton.setAttribute('aria-expanded', 'false');
 
-  // Clear the original block content
-  block.textContent = '';
+    // Create answer container
+    const answerDiv = document.createElement('div');
+    answerDiv.className = 'faq-answer';
+    answerDiv.innerHTML = answer.innerHTML;
 
-  // Show only first 2 initially; hide the rest
-  const initialCount = 2;
-  items.forEach((item, idx) => {
-    if (idx >= initialCount) {
-      item.classList.add('collapsed');
-    }
-    block.appendChild(item);
-  });
-
-  // Add "See more" button if needed
-  if (items.length > initialCount) {
-    const seeMore = document.createElement('button');
-    seeMore.type = 'button';
-    seeMore.className = 'faq-see-more';
-    seeMore.setAttribute('aria-expanded', 'false');
-    seeMore.textContent = 'See more';
-
-    seeMore.addEventListener('click', () => {
-      block.querySelectorAll('.faq-item.collapsed').forEach((el) => el.classList.remove('collapsed'));
-      seeMore.remove();
+    // Toggle functionality
+    questionButton.addEventListener('click', () => {
+      const isExpanded = questionButton.getAttribute('aria-expanded') === 'true';
+      questionButton.setAttribute('aria-expanded', !isExpanded);
+      accordionItem.classList.toggle('active');
     });
 
-    block.appendChild(seeMore);
+    accordionItem.appendChild(questionButton);
+    accordionItem.appendChild(answerDiv);
+    accordionContainer.appendChild(accordionItem);
+  });
+
+  // Create "See More" button if there are hidden items
+  if (rows.length > initialVisibleCount) {
+    const seeMoreButton = document.createElement('button');
+    seeMoreButton.className = 'faq-see-more';
+    seeMoreButton.textContent = 'see more';
+
+    seeMoreButton.addEventListener('click', () => {
+      const hiddenItems = accordionContainer.querySelectorAll('.faq-accordion-item.hidden');
+      hiddenItems.forEach(item => item.classList.remove('hidden'));
+      seeMoreButton.style.display = 'none';
+    });
+
+    accordionContainer.appendChild(seeMoreButton);
   }
+
+  // Clear and append
+  block.textContent = '';
+  block.appendChild(accordionContainer);
 }

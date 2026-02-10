@@ -1,63 +1,80 @@
-/* Container */
-.faq {
-  /* optional container styles */
+.faq-accordion-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
-/* Each FAQ item */
-.faq .faq-item {
-  border-bottom: 1px solid var(--color-border, #e6e6e6);
-  padding: 0.5rem 0;
+.faq-accordion-item {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
 }
 
-/* Hide items beyond the first two until "See more" is clicked */
-.faq .faq-item.collapsed {
+.faq-accordion-item.hidden {
   display: none;
 }
 
-/* Summary (question) styling */
-.faq .faq-question {
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 15px 40px 15px 0;
+  font-size: 16px;
+  font-weight: 500;
   cursor: pointer;
+  position: relative;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+  color: #0066cc;
+}
+
+.faq-question::after {
+  content: '+';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  font-weight: 300;
+  transition: transform 0.3s ease;
+}
+
+.faq-accordion-item.active .faq-question::after {
+  content: '−';
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 15px;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.faq-accordion-item.active .faq-answer {
+  max-height: 500px;
+  padding: 0 15px 20px 15px;
+}
+
+.faq-see-more {
+  background: none;
+  border: none;
+  color: #0066cc;
+  font-size: 14px;
   font-weight: 600;
-  list-style: none;
-  outline: none;
-  padding: 0.5rem 0;
-}
-
-/* Hide the default triangle marker in some browsers */
-.faq .faq-question::-webkit-details-marker {
-  display: none;
-}
-
-/* Optional custom chevron */
-.faq .faq-question::after {
-  content: '▾';
-  float: right;
-  transition: transform 0.2s ease;
-  color: currentColor;
-}
-
-.faq .faq-item[open] .faq-question::after {
-  transform: rotate(180deg);
-}
-
-/* Answer content */
-.faq .faq-answer {
-  margin: 0.5rem 0 0 0;
-  color: var(--color-text, inherit);
-}
-
-/* "See more" button */
-.faq .faq-see-more {
-  margin-top: 0.75rem;
-  padding: 0.5rem 0.75rem;
-  border: 1px solid var(--color-border, #e6e6e6);
-  background: var(--color-background, #fff);
-  color: var(--color-text, inherit);
-  border-radius: 4px;
   cursor: pointer;
+  padding: 15px 0;
+  text-transform: lowercase;
+  transition: color 0.3s ease;
 }
 
-.faq .faq-see-more:hover,
-.faq .faq-see-more:focus {
-  border-color: var(--color-text, #333);
+.faq-see-more:hover {
+  color: #0052a3;
+  text-decoration: underline;
 }

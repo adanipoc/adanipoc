@@ -1,54 +1,42 @@
 export default function decorate(block) {
-const rows = [...block.children];
-const container = document.createElement('div');
-container.classList.add('faq-accordion');
-const faqItems = [];
-// Build FAQ items except last row
-rows.forEach((row, index) => {
-const cols = [...row.children];
-const question = cols[0]?.textContent.trim();
-const answer = cols[1]?.innerHTML.trim();
-// Last row = See More
-if (index === rows.length - 1) {
-return;
-}
-const item = document.createElement('div');
-item.classList.add('faq-item');
-const q = document.createElement('div');
-q.classList.add('faq-question');
-q.textContent = question;
-const a = document.createElement('div');
-a.classList.add('faq-answer');
-a.innerHTML = answer;
-q.addEventListener('click', () => {
-a.classList.toggle('open');
-q.classList.toggle('active');
-});
-item.appendChild(q);
-item.appendChild(a);
-faqItems.push(item);
-});
-// Add FAQ items to container
-faqItems.forEach((item, i) => {
-if (i > 1) item.classList.add('hidden-faq');
-container.appendChild(item);
-});
-// Create See More / See Less link
-const seeMore = document.createElement('div');
-seeMore.classList.add('see-more');
-seeMore.textContent = 'See More';
-let expanded = false;
-seeMore.addEventListener('click', () => {
-expanded = !expanded;
-faqItems.forEach((item, i) => {
-if (i > 1) {
-if (expanded) item.classList.remove('hidden-faq');
-else item.classList.add('hidden-faq');
-}
-});
-seeMore.textContent = expanded ? 'See Less' : 'See More';
-});
-container.appendChild(seeMore);
-block.innerHTML = '';
-block.appendChild(container);
+  const rows = [...block.querySelectorAll('tr')];
+
+  // Remove heading row if present
+  const headingRow = rows[0];
+  const faqRows = rows.slice(1, rows.length - 1);
+  const toggleRow = rows[rows.length - 1];
+
+  // Convert FAQ cells
+  faqRows.forEach((row, index) => {
+    row.classList.add('faq-row');
+
+    const cell = row.querySelector('td');
+    cell.classList.add('faq-question');
+
+    // Hide rows after second
+    if (index > 1) {
+      row.classList.add('faq-hidden');
+    }
+  });
+
+  // Convert last row into a button
+  const toggleCell = toggleRow.querySelector('td');
+  const button = document.createElement('button');
+  button.className = 'faq-toggle-btn';
+  button.textContent = 'See more';
+  toggleCell.innerHTML = '';
+  toggleCell.appendChild(button);
+
+  // Toggle functionality
+  button.addEventListener('click', () => {
+    const hiddenFaqs = block.querySelectorAll('.faq-hidden');
+
+    const shouldShow = hiddenFaqs[0].style.display !== 'table-row';
+
+    hiddenFaqs.forEach(r => {
+      r.style.display = shouldShow ? 'table-row' : 'none';
+    });
+
+    button.textContent = shouldShow ? 'See less' : 'See more';
+  });
 }

@@ -1,138 +1,158 @@
-.sso-integration-container {
-  max-width: 1200px;
+.form-container {
+  max-width: 600px;
   margin: 0 auto;
-  padding: 40px 20px;
-  font-family: Arial, sans-serif;
+  padding: 20px;
 }
 
-.sso-header {
-  margin-bottom: 30px;
-  border-bottom: 3px solid #004990;
-  padding-bottom: 15px;
+.custom-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
-.sso-title {
-  font-size: 28px;
-  font-weight: 600;
-  color: #004990;
-  margin: 0;
+.form-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-.sso-content-wrapper {
-  background: #fff;
-}
-
-.sso-section-header {
-  font-size: 20px;
-  font-weight: 600;
-  color: #333;
-  margin: 30px 0 15px 0;
-  padding: 10px 0;
-  border-bottom: 2px solid #e0e0e0;
-}
-
-.sso-item {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 20px;
-  padding: 12px 0;
-  border-bottom: 1px solid #f0f0f0;
-  align-items: start;
-}
-
-.sso-label {
-  font-weight: 600;
-  color: #333;
+.form-label {
   font-size: 14px;
-}
-
-.sso-value {
-  color: #666;
-  font-size: 14px;
-  line-height: 1.6;
-  word-break: break-word;
-}
-
-.sso-value.sso-endpoint {
-  font-family: 'Courier New', monospace;
-  background: #f5f5f5;
-  padding: 8px 12px;
-  border-radius: 4px;
-  color: #004990;
-  font-size: 13px;
+  font-weight: 600;
+  color: #000;
   display: block;
 }
 
-.sso-field-table {
+.label-with-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.form-link {
+  font-size: 12px;
+  color: #000;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.form-link:hover {
+  opacity: 0.7;
+}
+
+.input-wrapper {
+  display: flex;
+  gap: 8px;
+}
+
+.form-input {
   width: 100%;
-  border-collapse: collapse;
-  margin: 20px 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.sso-field-table thead {
-  background: #004990;
-  color: #fff;
-}
-
-.sso-field-table th {
-  padding: 12px 15px;
-  text-align: left;
-  font-weight: 600;
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   font-size: 14px;
-  border: 1px solid #003366;
+  color: #000;
+  background-color: #fff;
+  transition: border-color 0.2s ease;
 }
 
-.sso-field-table td {
-  padding: 12px 15px;
-  border: 1px solid #e0e0e0;
+.form-input:focus {
+  outline: none;
+  border-color: #000;
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+.mobile-input {
+  max-width: 300px;
+}
+
+.dob-wrapper {
+  max-width: 300px;
+}
+
+.dob-input {
+  flex: 1;
+  text-align: center;
+}
+
+.dob-input:first-child,
+.dob-input:nth-child(2) {
+  max-width: 60px;
+}
+
+.dob-input:last-child {
+  max-width: 80px;
+}
+
+.helper-text {
+  font-size: 12px;
+  color: #666;
+  display: block;
+}
+
+.link-helper {
+  margin-top: 4px;
+}
+
+.radio-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.radio-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.radio-input {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #000;
+  flex-shrink: 0;
+}
+
+.radio-label {
+  cursor: pointer;
   font-size: 14px;
-  color: #333;
+  color: #000;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.sso-field-table tbody tr:nth-child(even) {
-  background: #f9f9f9;
+.radio-label-text {
+  font-weight: 500;
 }
 
-.sso-field-table tbody tr:hover {
-  background: #f0f7ff;
+.radio-note {
+  font-size: 12px;
+  color: #666;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
-  .sso-item {
-    grid-template-columns: 1fr;
-    gap: 8px;
+  .form-container {
+    padding: 16px;
   }
 
-  .sso-field-table {
-    font-size: 12px;
+  .label-with-link {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
   }
 
-  .sso-field-table th,
-  .sso-field-table td {
-    padding: 8px 10px;
+  .mobile-input,
+  .dob-wrapper {
+    max-width: 100%;
   }
-}
-
-/* Ordered/Unordered lists in content */
-.sso-value ul,
-.sso-value ol {
-  margin: 8px 0;
-  padding-left: 20px;
-}
-
-.sso-value li {
-  margin: 5px 0;
-  line-height: 1.6;
-}
-
-/* Code blocks */
-.sso-value code {
-  background: #f5f5f5;
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-family: 'Courier New', monospace;
-  font-size: 13px;
-  color: #d63384;
 }

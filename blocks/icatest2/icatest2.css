@@ -1,0 +1,138 @@
+.sso-integration-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.sso-header {
+  margin-bottom: 30px;
+  border-bottom: 3px solid #004990;
+  padding-bottom: 15px;
+}
+
+.sso-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #004990;
+  margin: 0;
+}
+
+.sso-content-wrapper {
+  background: #fff;
+}
+
+.sso-section-header {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 30px 0 15px 0;
+  padding: 10px 0;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.sso-item {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 20px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f0f0f0;
+  align-items: start;
+}
+
+.sso-label {
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.sso-value {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+  word-break: break-word;
+}
+
+.sso-value.sso-endpoint {
+  font-family: 'Courier New', monospace;
+  background: #f5f5f5;
+  padding: 8px 12px;
+  border-radius: 4px;
+  color: #004990;
+  font-size: 13px;
+  display: block;
+}
+
+.sso-field-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sso-field-table thead {
+  background: #004990;
+  color: #fff;
+}
+
+.sso-field-table th {
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  border: 1px solid #003366;
+}
+
+.sso-field-table td {
+  padding: 12px 15px;
+  border: 1px solid #e0e0e0;
+  font-size: 14px;
+  color: #333;
+}
+
+.sso-field-table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+.sso-field-table tbody tr:hover {
+  background: #f0f7ff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .sso-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .sso-field-table {
+    font-size: 12px;
+  }
+
+  .sso-field-table th,
+  .sso-field-table td {
+    padding: 8px 10px;
+  }
+}
+
+/* Ordered/Unordered lists in content */
+.sso-value ul,
+.sso-value ol {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.sso-value li {
+  margin: 5px 0;
+  line-height: 1.6;
+}
+
+/* Code blocks */
+.sso-value code {
+  background: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  color: #d63384;
+}
